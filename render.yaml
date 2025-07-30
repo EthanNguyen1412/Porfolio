@@ -1,30 +1,15 @@
 services:
-  # Cấu hình cho dịch vụ web của bạn
   - type: web
-    name: my-portfolio # <-- Bạn có thể đổi tên này
-    plan: free # Sử dụng gói miễn phí
-
-    # buildCommand: Lệnh để build dự án.
-    # Lệnh "./mvnw" yêu cầu các file Maven Wrapper (mvnw, .mvn/) phải có trong repo GitHub.
+    name: my-portfolio-vietanh # Đặt một cái tên mới để tránh trùng lặp
+    plan: free
     buildCommand: "./mvnw clean package"
-
-    # startCommand: Lệnh để chạy ứng dụng sau khi build thành công.
-    # QUAN TRỌNG: Hãy chắc chắn tên file .jar này khớp với file pom.xml của bạn.
     startCommand: "java -jar target/cv-0.0.1-SNAPSHOT.jar"
-
-    # envVars: Các biến môi trường
     envVars:
-      # Yêu cầu Render sử dụng môi trường build của Java phiên bản 17
       - key: JAVA_VERSION
         value: 17
-
-      # Các biến môi trường cho ứng dụng Spring Boot của bạn
       - key: SPRING_MAIL_USERNAME
-        value: ngvietanh.it@gmail.com # <-- Email thật của bạn
-
+        value: ngvietanh.it@gmail.com
       - key: SPRING_MAIL_PASSWORD
-        value: gjfx daws kxnf ieymn # <-- Mật khẩu ứng dụng thật của bạn
-
-      # Render sẽ tự động gán cổng, nhưng ta khai báo để Spring Boot nhận diện
+        value: gjfx daws kxnf ieymn
       - key: SERVER_PORT
         value: 10000
