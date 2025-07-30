@@ -1,0 +1,16 @@
+services:
+  # Tên dịch vụ của bạn trên Render
+  - type: web
+    name: cv # <-- Đổi tên này cho phù hợp
+    env: java
+    plan: free # Gói miễn phí
+    buildCommand: "./mvnw clean package"
+    startCommand: "java -jar target/cv-0.0.1-SNAPSHOT.jar" # <-- KIỂM TRA LẠI TÊN FILE .JAR
+    envVars:
+      - key: SPRING_MAIL_USERNAME
+        value: your-email@gmail.com # <-- Điền email của bạn
+      - key: SPRING_MAIL_PASSWORD
+        value: your_google_app_password # <-- Điền mật khẩu ứng dụng
+      - key: SERVER_PORT
+        value: 10000
+    
