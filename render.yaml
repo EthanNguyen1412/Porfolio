@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: my-portfolio-vietanh
+    name: my-portfolio-vietanh # Đặt một cái tên mới để tránh trùng lặp
     plan: free
     buildCommand: "./mvnw clean package"
     startCommand: "java -jar target/cv-0.0.1-SNAPSHOT.jar"
