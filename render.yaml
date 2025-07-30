@@ -1,14 +1,20 @@
 services:
+  # Tên dịch vụ của bạn trên Render
   - type: web
-    name: cv
-    env: java
-    plan: free
+    name: cv # <-- Đổi tên này cho phù hợp
+    plan: free # Gói miễn phí
+    # buildCommand: Lệnh để build dự án. Sử dụng Maven Wrapper.
     buildCommand: "./mvnw clean package"
+    # startCommand: Lệnh để chạy ứng dụng sau khi build.
     startCommand: "java -jar target/cv-0.0.1-SNAPSHOT.jar"
     envVars:
+      # Yêu cầu Render sử dụng môi trường Java 17
+      - key: JAVA_VERSION
+        value: 17
+      # Các biến môi trường cho ứng dụng của bạn
       - key: SPRING_MAIL_USERNAME
-        value: ngvietanh.it@gmail.com
+        value: your-email@gmail.com # <-- Điền email thật của bạn
       - key: SPRING_MAIL_PASSWORD
-        value: gjfx daws kxnf ieym
+        value: your_google_app_password # <-- Điền mật khẩu ứng dụng thật của bạn
       - key: SERVER_PORT
         value: 10000
