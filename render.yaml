@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: cv     
+    plan: free
+    
+    buildCommand: "./mvnw clean package"
+    
+    startCommand: "java -jar target/cv-0.0.1-SNAPSHOT.jar"
+    
+    envVars:
+      - key: JAVA_VERSION
+        value: 17
+        
+      - key: SPRING_MAIL_USERNAME
+        value: ngvietanh.it@gmail.com         
+      - key: SPRING_MAIL_PASSWORD
+        value: gjfx daws kxnf ieymn         
+      - key: SERVER_PORT
+        value: 10000
