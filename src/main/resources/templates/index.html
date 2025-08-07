@@ -1,448 +1,493 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-
+<!doctype html>
+<html lang="vi">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Portfolio | Viet Anh Nguyen</title>
-  <meta content="The portfolio and project showcase of Viet Anh Nguyen, an AI Student and Developer." name="description">
-  <meta content="portfolio, cv, resume, developer, ai student" name="keywords">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>AI Plant Disease Diagnosis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Favicons -->
-  <link href="/assets/img/favicon.png" rel="icon">
-  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-  <!-- Vendor CSS Files -->
-  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
 
-  <!-- Main CSS File -->
-  <link href="/assets/css/main.css" rel="stylesheet">
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
 
-  <!-- Custom Styles for Project Section -->
-  <style>
-    .portfolio-case-study {
-      background: #ffffff;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    .portfolio-case-study img {
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    .portfolio-case-study h4 {
-      font-size: 20px;
-      font-weight: 700;
-      color: #15202b;
-    }
-    .portfolio-case-study .role {
-      font-size: 14px;
-      color: #657786;
-      font-style: italic;
-      margin-bottom: 15px;
-    }
-    .takeaways {
-      background: #f5f8fa;
-      border-left: 4px solid #1da1f2;
-      padding: 15px;
-      margin-top: 20px;
-      border-radius: 0 8px 8px 0;
-    }
-    .takeaways h5 {
-      font-size: 16px;
-      font-weight: 600;
-      color: #15202b;
-    }
-    .takeaways ul {
-      padding-left: 20px;
-      margin-bottom: 0;
-    }
-    .takeaways li {
-      font-size: 14px;
-      color: #1c2733;
-      margin-bottom: 8px;
-    }
-    .github-link-btn {
-      margin-top: auto;
-      padding-top: 20px;
-    }
-    /* CSS cho thông báo gửi form */
-    .sent-message {
-        color: #0f5132;
-        background-color: #d1e7dd;
-        border-color: #badbcc;
-        padding: 1rem;
-        margin-bottom: 1rem;
-        border: 1px solid transparent;
-        border-radius: .25rem;
-        display: block !important;
-    }
-    .error-message {
-        color: #842029;
-        background-color: #f8d7da;
-        border-color: #f5c2c7;
-        padding: 1rem;
-        margin-bottom: 1rem;
-        border: 1px solid transparent;
-        border-radius: .25rem;
-        display: block !important;
-    }
-  </style>
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
+        .main-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .upload-section {
+            margin-bottom: 30px;
+        }
+
+        .upload-area {
+            border: 3px dashed #4CAF50;
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            background: linear-gradient(145deg, #f8fffe, #e8f5e8);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-area:hover {
+            border-color: #45a049;
+            background: linear-gradient(145deg, #f0fff0, #e0f0e0);
+            transform: translateY(-2px);
+        }
+
+        .upload-area.dragover {
+            border-color: #2196F3;
+            background: linear-gradient(145deg, #f0f8ff, #e0f0ff);
+            transform: scale(1.02);
+        }
+
+        .upload-icon {
+            font-size: 4rem;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .upload-text {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .upload-hint {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .btn {
+            background: linear-gradient(145deg, #4CAF50, #45a049);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .preview-section {
+            margin: 30px 0;
+            display: none;
+        }
+
+        .preview-image {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin: 20px auto;
+            display: block;
+        }
+
+        .result-section {
+            margin-top: 30px;
+            display: none;
+        }
+
+        .result-card {
+            background: linear-gradient(145deg, #f8fff8, #e8f5e8);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border-left: 5px solid #4CAF50;
+        }
+
+        .result-title {
+            font-size: 1.5rem;
+            color: #2c5d3d;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .prediction-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #d9534f;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(217, 83, 79, 0.1);
+            border-radius: 10px;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4CAF50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .tips-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        .tips-title {
+            font-size: 1.3rem;
+            color: #2c5d3d;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tips-list li {
+            padding: 8px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tips-list li::before {
+            content: "✓";
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .error-message {
+            background: linear-gradient(145deg, #fff8f8, #ffeaea);
+            border: 1px solid #ffcdd2;
+            border-radius: 10px;
+            padding: 15px;
+            color: #d32f2f;
+            margin: 15px 0;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .main-card {
+                padding: 25px;
+            }
+
+            .upload-area {
+                padding: 30px 15px;
+            }
+
+            .upload-icon {
+                font-size: 3rem;
+            }
+
+            .prediction-text {
+                font-size: 1.5rem;
+            }
+        }
+
+        .new-diagnosis-btn {
+            background: linear-gradient(145deg, #2196F3, #1976D2);
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+            margin-top: 20px;
+        }
+
+        .new-diagnosis-btn:hover {
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+        }
+    </style>
 </head>
-
-<body class="index-page">
-
-<header id="header" class="header dark-background d-flex flex-column">
-  <i class="header-toggle d-xl-none bi bi-list"></i>
-  <div class="profile-img">
-    <img src="/images/Nguyen_Viet_Anh.jpg" alt="Viet Anh Nguyen" class="img-fluid rounded-circle">
-  </div>
-  <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-    <h1 class="sitename">Viet Anh Nguyen</h1>
-  </a>
-  <div class="social-links text-center">
-    <!-- === CẬP NHẬT LINK MẠNG XÃ HỘI === -->
-    <a href="https://github.com/EthanNguyen1412" class="github" target="_blank"><i class="bi bi-github"></i></a>
-    <a href="https://www.facebook.com/share/1991RXnPU7/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
-    <a href="https://www.linkedin.com/in/nguyenvietanhit" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
-  </div>
-  <nav id="navmenu" class="navmenu">
-    <ul>
-      <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i> Home</a></li>
-      <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-      <li><a href="#skills"><i class="bi bi-gear navicon"></i> Skills</a></li>
-      <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-      <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-      <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main class="main">
-
-  <!-- Hero Section -->
-  <section id="hero" class="hero section dark-background">
-    <img src="/assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <h2>Viet Anh Nguyen</h2>
-      <p>I'm an <span class="typed" data-typed-items="AI Student, Developer, Team Leader, Lifelong Learner"></span></p>
-    </div>
-  </section><!-- /Hero Section -->
-
-  <!-- About Section -->
-  <section id="about" class="about section">
-    <div class="container section-title" data-aos="fade-up">
-      <h2>About Me</h2>
-      <p>I am a third-year Artificial Intelligence student at the University of Economics and Finance in Ho Chi Minh City. I possess a strong learning mindset, a positive attitude, and a high level of adaptability. With an outgoing and enthusiastic personality, I am always eager to explore new knowledge, particularly in advanced technologies related to AI and data science.</p>
-    </div>
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <div class="row gy-4 justify-content-center">
-        <div class="col-lg-4">
-          <img src="/images/Nguyen_Viet_Anh.jpg" class="img-fluid" alt="">
-        </div>
-        <div class="col-lg-8 content">
-          <h2>AI Student &amp; Aspiring Software Developer.</h2>
-          <p class="fst-italic py-3">
-            I am a responsible team player who enjoys collaboration and continuous improvement. I am passionate about sports and fitness, believing that a healthy lifestyle supports holistic personal growth.
-          </p>
-          <div class="row">
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+84 812 553 774</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>District 7, HCMC, Vietnam</span></li>
-              </ul>
-            </div>
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Undergraduate</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>ngvietanh.it@gmail.com</span></li>
-              </ul>
-            </div>
-          </div>
-          <p class="py-3">
-            In my free time, I enjoy researching and experimenting with new technologies, as well as participating in group projects, technical events, and activities to strengthen both my professional and interpersonal skills.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section><!-- /About Section -->
-
-  <!-- Skills Section -->
-  <section id="skills" class="skills section light-background">
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Skills</h2>
-    </div>
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <div class="row skills-content skills-animation">
-        <div class="col-lg-6">
-          <div class="progress">
-            <span class="skill"><span>Java & Spring Boot</span> <i class="val">85%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="progress">
-            <span class="skill"><span>Python</span> <i class="val">80%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="progress">
-            <span class="skill"><span>SQL (MySQL, PostgreSQL)</span> <i class="val">75%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="progress">
-            <span class="skill"><span>Git & GitHub</span> <i class="val">90%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="progress">
-            <span class="skill"><span>Linear Algebra & Calculus</span> <i class="val">80%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="progress">
-            <span class="skill"><span>Probability & Statistics</span> <i class="val">85%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section><!-- /Skills Section -->
-
-  <!-- Resume Section -->
-  <section id="resume" class="resume section">
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Resume</h2>
-    </div>
+<body>
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-          <h3 class="resume-title">Summary</h3>
-          <div class="resume-item pb-0">
-            <h4>Viet Anh Nguyen</h4>
-            <p><em>A proactive and adaptable third-year AI student with a passion for developing innovative software solutions. Eager to apply academic knowledge to real-world challenges and contribute to a dynamic team.</em></p>
-            <ul>
-              <li>District 7, Ho Chi Minh City, Vietnam</li>
-              <li>(+84) 812 553 774</li>
-              <li>ngvietanh.it@gmail.com</li>
-            </ul>
-          </div>
-          <h3 class="resume-title">Education</h3>
-          <div class="resume-item">
-            <h4>Bachelor of Information Technology</h4>
-            <h5>2022 - Present</h5>
-            <p><em>University of Economics and Finance (UEF), HCMC</em></p>
-            <p>Specializing in Artificial Intelligence. Maintaining a strong academic record while actively participating in tech-related projects and workshops.</p>
-          </div>
-        </div>
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="resume-title">Download My Full CV</h3>
-          <div class="resume-item">
-            <p>For a more detailed look at my experience, projects, and qualifications, please feel free to download my full curriculum vitae.</p>
-            <a href="/files/Nguyen_Viet_Anh_CV.pdf" download="Nguyen_Viet_Anh_CV.pdf" class="btn btn-primary"><i class="bi bi-download"></i> Download CV</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section><!-- /Resume Section -->
-
-  <!-- Portfolio Section - RESTRUCTURED -->
-  <section id="portfolio" class="portfolio section light-background">
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Project Case Studies</h2>
-      <p>This section highlights key projects and, more importantly, the AI-relevant skills and insights gained from each experience.</p>
-    </div>
-    <div class="container">
-      <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
-
-        <!-- Case Study 1: Library System -->
-        <div class="col-lg-6">
-          <div class="portfolio-case-study">
-            <img src="https://placehold.co/600x400/eee/333?text=Library+System" class="img-fluid" alt="Library System Project">
-            <h4>Online Library Management System</h4>
-            <p class="role">Role: Team Leader, Backend & Frontend Developer</p>
-            <p>Developed a full-featured web platform to manage library resources, user accounts, and borrowing transactions.</p>
-
-            <div class="takeaways">
-              <h5><i class="bi bi-lightbulb"></i> Key Takeaways</h5>
-              <ul>
-                <li><strong>Data Management:</strong> Gained experience in designing and managing a structured database, a core skill for handling datasets in AI projects.</li>
-                <li><strong>Information Retrieval:</strong> Implementing search/filter functionalities provided a practical understanding of information retrieval, foundational for building recommendation systems.</li>
-                <li><strong>User Interaction (HCI):</strong> Learned to build an intuitive UI, crucial for creating effective and user-friendly AI-powered applications.</li>
-              </ul>
-            </div>
-
-            <div class="github-link-btn text-center">
-              <a href="https://github.com/EthanNguyen1412/Online-Library-Management-System" class="btn btn-outline-primary" target="_blank"><i class="bi bi-github"></i> View on GitHub</a>
-            </div>
-          </div>
+        <div class="header">
+            <h1>🌿 AI Plant Disease Diagnosis</h1>
+            <p>Upload plant leaf images for accurate AI-powered disease diagnosis and treatment recommendations</p>
         </div>
 
-        <!-- Case Study 2: ChatLAN App -->
-        <div class="col-lg-6">
-          <div class="portfolio-case-study">
-            <img src="https://placehold.co/600x400/ddd/333?text=Chat+App" class="img-fluid" alt="ChatLAN App Project">
-            <h4>Corporate Internal ChatLAN App</h4>
-            <p class="role">Role: Team Leader, Backend Developer</p>
-            <p>Built a secure desktop application for internal communication over a local network, focusing on real-time performance.</p>
-
-            <div class="takeaways">
-              <h5><i class="bi bi-lightbulb"></i> Key Takeaways</h5>
-              <ul>
-                <li><strong>Real-time Data Processing:</strong> Handling live message streams is analogous to processing data for dynamic AI models (e.g., live sentiment analysis).</li>
-                <li><strong>Data Security & Privacy:</strong> Reinforced the importance of data privacy and encryption, a critical ethical consideration in all AI systems.</li>
-                <li><strong>System Architecture:</strong> Understood client-server architecture, which is fundamental for deploying and scaling distributed AI models.</li>
-              </ul>
-            </div>
-
-            <div class="github-link-btn text-center">
-              <a href="https://github.com/EthanNguyen1412/ChatLAN-App" class="btn btn-outline-primary" target="_blank"><i class="bi bi-github"></i> View on GitHub</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Case Study 3: AI Plant Disease Diagnosis -->
-        <div class="col-lg-6">
-          <div class="portfolio-case-study">
-            <img src="https://placehold.co/600x400/28a745/ffffff?text=AI+Plant+Diagnosis" class="img-fluid" alt="AI Plant Disease Diagnosis Project">
-            <h4>AI Plant Disease Diagnosis</h4>
-            <p class="role">Role: Sole Developer (End-to-End)</p>
-            <p>The application allows users to upload an image of a plant leaf, and the AI model will analyze it to identify potential diseases, displaying the prediction and confidence level.</p>
-
-            <div class="takeaways">
-              <h5><i class="bi bi-lightbulb"></i> Key Takeaways</h5>
-              <ul>
-                <li><strong>Full-Stack AI Deployment:</strong> Integrated a TensorFlow Lite model into a Flask backend with a RESTful API, and built a responsive frontend using HTML/CSS/JS for a complete user experience.</li>
-                <li><strong>Advanced Computer Vision:</strong> Implemented and fine-tuned a CNN (EfficientNetB3) using Transfer Learning and data augmentation techniques to solve a real-world image classification problem.</li>
-                <li><strong>MLOps & Optimization:</strong> Gained hands-on experience converting a Keras model to the optimized TFLite format and debugging complex memory and version compatibility issues for production environments.</li>
-              </ul>
-            </div>
-
-            <div class="github-link-btn text-center">
-              <a href="https://github.com/EthanNguyen1412/Plant_Disease_Diagnosis_AI.git" class="btn btn-outline-primary" target="_blank"><i class="bi bi-github"></i> View on GitHub</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section><!-- /Portfolio Section -->
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact section">
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Contact</h2>
-    </div>
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <div class="row gy-4">
-        <div class="col-lg-5">
-          <div class="info-wrap">
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h3>Address</h3>
-                <p>District 7, Ho Chi Minh City, Vietnam</p>
-              </div>
-            </div>
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3>Call Me</h3>
-                <p>+84 812 553 774</p>
-              </div>
-            </div>
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Email Me</h3>
-                <p>ngvietanh.it@gmail.com</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-7">
-          <form th:action="@{/send-message}" method="post" data-aos="fade-up" data-aos-delay="200">
-            <div class="row gy-4">
-              <div class="col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-              </div>
-              <div class="col-md-6 ">
-                <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-              </div>
-              <div class="col-md-12">
-                <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-              </div>
-              <div class="col-md-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-              </div>
-              <div class="col-md-12 text-center">
-                <div th:if="${messageStatus}" class="my-3">
-                  <div th:class="${messageStatus == 'SUCCESS' ? 'sent-message' : 'error-message'}" th:text="${messageStatus == 'SUCCESS' ? 'Your message has been sent. Thank you!' : 'Failed to send message. Please try again.'}">
-                  </div>
+        <div class="main-card">
+            <form id="uploadForm" class="upload-form" action="/predict" method="post" enctype="multipart/form-data">
+                <div class="upload-section">
+                    <div class="upload-area" id="uploadArea">
+                        <span class="upload-icon">📁</span>
+                        <div class="upload-text">Drag & drop image here or click to select</div>
+                        <div class="upload-hint">Supports: JPG, PNG, JPEG (max 10MB)</div>
+                        <input type="file" name="file" id="fileInput" class="file-input" accept="image/*" required 
+                               title="Select plant image for analysis" aria-label="Upload plant image file">
+                        <button type="button" class="btn" onclick="document.getElementById('fileInput').click()">
+                            📷 Select Image
+                        </button>
+                    </div>
+                    
+                    <div class="error-message" id="errorMessage"></div>
                 </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-              </div>
+
+                <div class="preview-section" id="previewSection">
+                    <img id="previewImage" class="preview-image" alt="Preview">
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button type="submit" class="btn" id="analyzeBtn">
+                            🔍 Analyze Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="loading" id="loadingSection">
+                    <div class="loading-spinner"></div>
+                    <p>Analyzing your plant image...</p>
+                </div>
+            </form>
+
+            {% if prediction %}
+            <div class="result-section" style="display: block;">
+                <div class="result-card">
+                    <h3 class="result-title">🎯 Kết Quả Chẩn Đoán</h3>
+                    <img src="{{ url_for('static', filename=image_file) }}" class="preview-image" alt="Ảnh đã phân tích">
+                    <div class="prediction-text">{{ prediction }}</div>
+                    <button type="button" class="btn new-diagnosis-btn" onclick="location.reload()">
+                        🔄 Chẩn Đoán Mới
+                    </button>
+                </div>
             </div>
-          </form>
+            {% endif %}
         </div>
-      </div>
+
+        <div class="tips-section">
+            <h3 class="tips-title">🌱 Supported Plant Types & Tips for Best Results:</h3>
+            
+            <div style="margin-bottom: 25px;">
+                <h4 style="color: #2c5d3d; margin-bottom: 15px; font-size: 1.1rem;">📋 Currently Supported Plants:</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 20px;">
+                    <span style="background: #e8f5e9; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; text-align: center;">🍎 Apple</span>
+                    <span style="background: #e8f5e9; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; text-align: center;">🫐 Blueberry</span>
+                    <span style="background: #e8f5e9; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; text-align: center;">🍒 Cherry</span>
+                    <span style="background: #e8f5e9; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; text-align: center;">🌽 Corn (Maize)</span>
+                    <span style="background: #e8f5e9; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; text-align: center;">🍇 Grape</span>
+                    <span style="background: #e8f5e9; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; text-align: center;">🍊 Orange</span>
+                    <span style="background: #e8f5e9; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; text-align: center;">🍑 Peach</span>
+                    <span style="background: #e8f5e9; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; text-align: center;">🫑 Pepper Bell</span>
+                    <span style="background: #e8f5e9; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; text-align: center;">🥔 Potato</span>
+                    <span style="background: #e8f5e9; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; text-align: center;">🫐 Raspberry</span>
+                    <span style="background: #e8f5e9; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; text-align: center;">🫘 Soybean</span>
+                    <span style="background: #e8f5e9; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; text-align: center;">🎃 Squash</span>
+                    <span style="background: #e8f5e9; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; text-align: center;">🍓 Strawberry</span>
+                    <span style="background: #e8f5e9; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; text-align: center;">🍅 Tomato</span>
+                </div>
+            </div>
+
+            <h4 style="color: #2c5d3d; margin-bottom: 15px; font-size: 1.1rem;">💡 Photography Tips:</h4>
+            <ul class="tips-list">
+                <li>Take clear, well-lit photos of plant leaves</li>
+                <li>Ensure leaves occupy most of the frame</li>
+                <li>Avoid shadows or light reflections</li>
+                <li>Capture both top and bottom of leaves if symptoms are visible</li>
+                <li>Use high-resolution images (at least 300x300px)</li>
+                <li>Focus on diseased areas for better diagnosis accuracy</li>
+            </ul>
+        </div>
     </div>
-  </section><!-- /Contact Section -->
 
-</main>
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const previewSection = document.getElementById('previewSection');
+        const previewImage = document.getElementById('previewImage');
+        const uploadForm = document.getElementById('uploadForm');
+        const loadingSection = document.getElementById('loadingSection');
+        const analyzeBtn = document.getElementById('analyzeBtn');
+        const errorMessage = document.getElementById('errorMessage');
 
-<footer id="footer" class="footer dark-background">
-  <div class="container">
-    <div class="copyright text-center ">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Viet Anh Nguyen</strong> <span>All Rights Reserved</span></p>
-    </div>
-    <div class="credits">
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-    </div>
-  </div>
-</footer>
+        // Drag and drop functionality
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
 
-<!-- Scroll Top -->
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
 
-<!-- Preloader -->
-<div id="preloader"></div>
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileSelect(files[0]);
+            }
+        });
 
-<!-- Vendor JS Files -->
-<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/vendor/aos/aos.js"></script>
-<script src="/assets/vendor/typed.js/typed.umd.js"></script>
-<script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-<script src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
-<script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-<script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+        // File input change (khi click chọn file)
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                selectedFile = e.target.files[0];
+                handleFileSelect(e.target.files[0]);
+            }
+        });
 
-<!-- Main JS File -->
-<script src="/assets/js/main.js"></script>
+        // Handle file selection
+        function handleFileSelect(file) {
+            // Validate file type
+            if (!file.type.startsWith('image/')) {
+                showError('Vui lòng chọn file ảnh (JPG, PNG, JPEG)');
+                return;
+            }
 
+            // Validate file size (10MB)
+            if (file.size > 10 * 1024 * 1024) {
+                showError('Kích thước file quá lớn. Vui lòng chọn ảnh nhỏ hơn 10MB');
+                return;
+            }
+
+            hideError();
+
+            // Create file reader
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                previewImage.src = e.target.result;
+                previewSection.style.display = 'block';
+                
+                // Smooth scroll to preview
+                previewSection.scrollIntoView({ behavior: 'smooth' });
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Form submission
+        uploadForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            if (!fileInput.files[0]) {
+                showError('Please select an image to analyze');
+                return;
+            }
+
+            // Show loading
+            analyzeBtn.disabled = true;
+            loadingSection.style.display = 'block';
+
+            // Submit form
+            const formData = new FormData(uploadForm);
+            
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Có lỗi xảy ra khi phân tích ảnh');
+                }
+                return response.text();
+            })
+            .then(html => {
+                // Replace current page with response
+                document.open();
+                document.write(html);
+                document.close();
+            })
+            .catch(error => {
+                showError(error.message);
+                analyzeBtn.disabled = false;
+                loadingSection.style.display = 'none';
+            });
+        });
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+        }
+
+        function hideError() {
+            errorMessage.style.display = 'none';
+        }
+
+        // Click to upload
+        uploadArea.addEventListener('click', (e) => {
+            if (e.target === uploadArea || e.target.classList.contains('upload-icon') || 
+                e.target.classList.contains('upload-text') || e.target.classList.contains('upload-hint')) {
+                fileInput.click();
+            }
+        });
+    </script>
 </body>
-
 </html>
