@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Portfolio | Nguyễn Việt Anh</title>
-  <meta content="Portfolio và các dự án của Nguyễn Việt Anh, Sinh viên AI và Lập trình viên." name="description">
-  <meta content="portfolio, cv, hồ sơ, lập trình viên, sinh viên ai" name="keywords">
+  <title>Portfolio | Viet Anh Nguyen</title>
+  <meta content="The portfolio and project showcase of Viet Anh Nguyen, an AI Student and Developer." name="description">
+  <meta content="portfolio, cv, resume, developer, ai student" name="keywords">
 
   <!-- Favicons -->
   <link href="/assets/img/favicon.png" rel="icon">
@@ -27,37 +27,8 @@
   <!-- Main CSS File -->
   <link href="/assets/css/main.css" rel="stylesheet">
 
-  <!-- Custom Styles -->
+  <!-- Custom Styles for Project Section -->
   <style>
-    /* Language Switcher */
-    .language-switcher {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-      background: #fff;
-      padding: 8px 15px;
-      border-radius: 25px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .language-switcher button {
-      background: none;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      font-weight: 500;
-      color: #666;
-      transition: color 0.3s;
-    }
-    .language-switcher button.active {
-      color: #1da1f2;
-      font-weight: 700;
-    }
-    .language-switcher button:hover {
-      color: #1da1f2;
-    }
-    
-    /* Portfolio Case Study */
     .portfolio-case-study {
       background: #ffffff;
       padding: 25px;
@@ -107,109 +78,98 @@
       margin-top: auto;
       padding-top: 20px;
     }
-    
-    /* Skills Section Update */
-    .skills-list {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    /* CSS cho thông báo gửi form */
+    .sent-message {
+        color: #0f5132;
+        background-color: #d1e7dd;
+        border-color: #badbcc;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: .25rem;
+        display: block !important;
     }
-    .skills-list h4 {
+    .error-message {
+        color: #842029;
+        background-color: #f8d7da;
+        border-color: #f5c2c7;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: .25rem;
+        display: block !important;
+    }
+    /* New Skills Section Styles */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .skill-category {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    }
+    .skill-category h4 {
       color: #15202b;
       font-size: 18px;
       font-weight: 600;
-      margin-bottom: 15px;
-      border-bottom: 2px solid #1da1f2;
+      margin-bottom: 20px;
       padding-bottom: 10px;
+      border-bottom: 2px solid #1da1f2;
     }
-    .skills-list ul {
-      list-style: none;
-      padding: 0;
+    .skill-item {
+      margin-bottom: 15px;
     }
-    .skills-list li {
-      padding: 8px 0;
-      border-bottom: 1px solid #f0f0f0;
-      font-size: 15px;
+    .skill-item h5 {
+      color: #15202b;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
     }
-    .skills-list li:last-child {
-      border-bottom: none;
-    }
-    .skills-list strong {
-      color: #1da1f2;
-      display: inline-block;
-      min-width: 120px;
-    }
-    
-    /* Experience Timeline */
-    .experience-timeline {
+    .skill-item p {
+      color: #657786;
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+      padding-left: 20px;
       position: relative;
-      padding: 20px 0;
     }
-    .experience-timeline::before {
-      content: '';
+    .skill-item p:before {
+      content: "→";
       position: absolute;
-      left: 20px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: #1da1f2;
+      left: 0;
+      color: #1da1f2;
     }
+    /* Experience Section Styles */
     .experience-item {
       position: relative;
-      padding-left: 50px;
-      margin-bottom: 30px;
-    }
-    .experience-item::before {
-      content: '';
-      position: absolute;
-      left: 15px;
-      top: 5px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #1da1f2;
-      border: 2px solid #fff;
-      box-shadow: 0 0 0 2px #1da1f2;
+      padding: 20px 25px;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      margin-bottom: 25px;
     }
     .experience-item h4 {
       color: #15202b;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 600;
       margin-bottom: 5px;
     }
-    .experience-item .date {
-      color: #657786;
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-    .experience-item .company {
+    .experience-item h5 {
       color: #1da1f2;
+      font-size: 14px;
       font-weight: 500;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
-    
-    /* Form Messages */
-    .sent-message {
-      color: #0f5132;
-      background-color: #d1e7dd;
-      border-color: #badbcc;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border: 1px solid transparent;
-      border-radius: .25rem;
-      display: block !important;
-    }
-    .error-message {
-      color: #842029;
-      background-color: #f8d7da;
-      border-color: #f5c2c7;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border: 1px solid transparent;
-      border-radius: .25rem;
-      display: block !important;
+    .experience-item .badge {
+      background-color: #1da1f2;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      margin-left: 10px;
     }
   </style>
 
@@ -217,34 +177,28 @@
 
 <body class="index-page">
 
-<!-- Language Switcher -->
-<div class="language-switcher">
-  <button class="active" onclick="switchLanguage('vi')">VI</button>
-  <button onclick="switchLanguage('en')">EN</button>
-</div>
-
 <header id="header" class="header dark-background d-flex flex-column">
   <i class="header-toggle d-xl-none bi bi-list"></i>
   <div class="profile-img">
-    <img src="/images/Nguyen_Viet_Anh.jpg" alt="Nguyễn Việt Anh" class="img-fluid rounded-circle">
+    <img src="/images/Nguyen_Viet_Anh.jpg" alt="Viet Anh Nguyen" class="img-fluid rounded-circle">
   </div>
   <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-    <h1 class="sitename">Nguyễn Việt Anh</h1>
+    <h1 class="sitename">Viet Anh Nguyen</h1>
   </a>
   <div class="social-links text-center">
+    <!-- === CẬP NHẬT LINK MẠNG XÃ HỘI === -->
     <a href="https://github.com/EthanNguyen1412" class="github" target="_blank"><i class="bi bi-github"></i></a>
     <a href="https://www.facebook.com/share/1991RXnPU7/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
     <a href="https://www.linkedin.com/in/nguyenvietanhit" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
   </div>
   <nav id="navmenu" class="navmenu">
     <ul>
-      <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i> <span data-lang="menu-home">Trang chủ</span></a></li>
-      <li><a href="#about"><i class="bi bi-person navicon"></i> <span data-lang="menu-about">Giới thiệu</span></a></li>
-      <li><a href="#skills"><i class="bi bi-gear navicon"></i> <span data-lang="menu-skills">Kỹ năng</span></a></li>
-      <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> <span data-lang="menu-resume">Hồ sơ</span></a></li>
-      <li><a href="#experience"><i class="bi bi-briefcase navicon"></i> <span data-lang="menu-experience">Kinh nghiệm</span></a></li>
-      <li><a href="#portfolio"><i class="bi bi-images navicon"></i> <span data-lang="menu-portfolio">Dự án</span></a></li>
-      <li><a href="#contact"><i class="bi bi-envelope navicon"></i> <span data-lang="menu-contact">Liên hệ</span></a></li>
+      <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i> Home</a></li>
+      <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
+      <li><a href="#skills"><i class="bi bi-gear navicon"></i> Skills</a></li>
+      <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+      <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
+      <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
     </ul>
   </nav>
 </header>
@@ -255,16 +209,16 @@
   <section id="hero" class="hero section dark-background">
     <img src="/assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
     <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <h2>Nguyễn Việt Anh</h2>
-      <p data-lang="hero-subtitle">Tôi là <span class="typed" data-typed-items="Sinh viên AI, Lập trình viên, Trưởng nhóm, Người học suốt đời"></span></p>
+      <h2>Viet Anh Nguyen</h2>
+      <p>I'm an <span class="typed" data-typed-items="AI Student, Developer, Team Leader, Lifelong Learner"></span></p>
     </div>
-  </section>
+  </section><!-- /Hero Section -->
 
   <!-- About Section -->
   <section id="about" class="about section">
     <div class="container section-title" data-aos="fade-up">
-      <h2 data-lang="about-title">Giới thiệu về tôi</h2>
-      <p data-lang="about-intro">Tôi là sinh viên năm 3 chuyên ngành Trí tuệ Nhân tạo tại Trường Đại học Kinh tế - Tài chính TP.HCM. Tôi sở hữu tư duy học hỏi mạnh mẽ, thái độ tích cực và khả năng thích ứng cao. Với tính cách hướng ngoại và nhiệt tình, tôi luôn háo hức khám phá kiến thức mới, đặc biệt là các công nghệ tiên tiến liên quan đến AI và khoa học dữ liệu.</p>
+      <h2>About Me</h2>
+      <p>I am a third-year Artificial Intelligence student at the University of Economics and Finance in Ho Chi Minh City. I possess a strong learning mindset, a positive attitude, and a high level of adaptability. With an outgoing and enthusiastic personality, I am always eager to explore new knowledge, particularly in advanced technologies related to AI and data science.</p>
     </div>
     <div class="container" data-aos="fade-up" data-aos-delay="100">
       <div class="row gy-4 justify-content-center">
@@ -272,305 +226,298 @@
           <img src="/images/Nguyen_Viet_Anh.jpg" class="img-fluid" alt="">
         </div>
         <div class="col-lg-8 content">
-          <h2 data-lang="about-subtitle">Sinh viên AI & Lập trình viên đầy tham vọng</h2>
-          <p class="fst-italic py-3" data-lang="about-description">
-            Tôi là người làm việc nhóm có trách nhiệm, thích hợp tác và cải tiến liên tục. Tôi đam mê thể thao và thể dục, tin rằng lối sống lành mạnh hỗ trợ phát triển toàn diện cá nhân.
+          <h2>AI Student &amp; Aspiring Software Developer.</h2>
+          <p class="fst-italic py-3">
+            I am a responsible team player who enjoys collaboration and continuous improvement. I am passionate about sports and fitness, believing that a healthy lifestyle supports holistic personal growth.
           </p>
           <div class="row">
             <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong data-lang="phone">Điện thoại:</strong> <span>+84 812 553 774</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong data-lang="city">Thành phố:</strong> <span>Quận 7, TP.HCM, Việt Nam</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+84 812 553 774</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>District 7, HCMC, Vietnam</span></li>
               </ul>
             </div>
             <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong data-lang="degree">Trình độ:</strong> <span data-lang="undergraduate">Đại học</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Undergraduate</span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>ngvietanh.it@gmail.com</span></li>
               </ul>
             </div>
           </div>
-          <p class="py-3" data-lang="about-hobbies">
-            Trong thời gian rảnh, tôi thích nghiên cứu và thử nghiệm các công nghệ mới, cũng như tham gia vào các dự án nhóm, sự kiện kỹ thuật và các hoạt động để củng cố cả kỹ năng chuyên môn và giao tiếp.
+          <p class="py-3">
+            In my free time, I enjoy researching and experimenting with new technologies, as well as participating in group projects, technical events, and activities to strengthen both my professional and interpersonal skills.
           </p>
         </div>
       </div>
     </div>
-  </section>
+  </section><!-- /About Section -->
 
-  <!-- Skills Section - Updated -->
+  <!-- Skills Section - COMPLETELY REDESIGNED -->
   <section id="skills" class="skills section light-background">
     <div class="container section-title" data-aos="fade-up">
-      <h2 data-lang="skills-title">Kỹ năng</h2>
+      <h2>Technical Skills</h2>
+      <p>Practical experience gained through hands-on projects and academic coursework</p>
     </div>
     <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="skills-list">
-            <h4 data-lang="skills-programming">Ngôn ngữ lập trình & Framework</h4>
-            <ul>
-              <li><strong>Java & Spring Boot:</strong> <span data-lang="skill-java">Xây dựng hệ thống quản lý thư viện với 10+ API endpoints</span></li>
-              <li><strong>Python:</strong> <span data-lang="skill-python">Phát triển Fake News Detector đạt độ chính xác 90%</span></li>
-              <li><strong>SQL:</strong> <span data-lang="skill-sql">Thiết kế database cho 3 dự án với MySQL và PostgreSQL</span></li>
-              <li><strong>HTML/CSS/JS:</strong> <span data-lang="skill-web">Tạo giao diện responsive cho 4+ ứng dụng web</span></li>
-            </ul>
-          </div>
-          
-          <div class="skills-list">
-            <h4 data-lang="skills-tools">Công cụ & Công nghệ</h4>
-            <ul>
-              <li><strong>Git & GitHub:</strong> <span data-lang="skill-git">Quản lý version control cho 10+ repositories</span></li>
-              <li><strong>Docker:</strong> <span data-lang="skill-docker">Containerize ứng dụng Spring Boot và deploy</span></li>
-              <li><strong>TensorFlow/Keras:</strong> <span data-lang="skill-tf">Train model CNN với accuracy 95% cho nhận diện bệnh cây</span></li>
-            </ul>
-          </div>
-        </div>
+      <div class="skills-grid">
         
-        <div class="col-lg-6">
-          <div class="skills-list">
-            <h4 data-lang="skills-ai">AI & Machine Learning</h4>
-            <ul>
-              <li><strong>Computer Vision:</strong> <span data-lang="skill-cv">Implement EfficientNetB3 cho phân loại hình ảnh</span></li>
-              <li><strong>NLP:</strong> <span data-lang="skill-nlp">Xây dựng text classifier với TF-IDF và Logistic Regression</span></li>
-              <li><strong>XAI (LIME):</strong> <span data-lang="skill-xai">Tích hợp giải thích model để tăng độ tin cậy</span></li>
-              <li><strong>Transfer Learning:</strong> <span data-lang="skill-transfer">Fine-tune pre-trained models cho 2 dự án thực tế</span></li>
-            </ul>
+        <!-- Programming & Development -->
+        <div class="skill-category">
+          <h4><i class="bi bi-code-slash"></i> Programming & Development</h4>
+          <div class="skill-item">
+            <h5>Java & Spring Boot</h5>
+            <p>Built complete Library Management System with REST APIs, serving 100+ concurrent users</p>
           </div>
-          
-          <div class="skills-list">
-            <h4 data-lang="skills-math">Toán học & Thống kê</h4>
-            <ul>
-              <li><strong data-lang="linear-algebra">Đại số tuyến tính:</strong> <span data-lang="skill-linear">Áp dụng trong xử lý ma trận cho deep learning</span></li>
-              <li><strong data-lang="calculus">Giải tích:</strong> <span data-lang="skill-calculus">Hiểu rõ backpropagation và gradient descent</span></li>
-              <li><strong data-lang="probability">Xác suất & Thống kê:</strong> <span data-lang="skill-stats">Phân tích dữ liệu và đánh giá model performance</span></li>
-            </ul>
+          <div class="skill-item">
+            <h5>Python</h5>
+            <p>Developed AI Fake News Detector achieving 90% accuracy using Scikit-learn and LIME</p>
+          </div>
+          <div class="skill-item">
+            <h5>SQL (MySQL, PostgreSQL)</h5>
+            <p>Designed and optimized databases for multiple projects, handling 10,000+ records efficiently</p>
           </div>
         </div>
+
+        <!-- AI & Machine Learning -->
+        <div class="skill-category">
+          <h4><i class="bi bi-robot"></i> AI & Machine Learning</h4>
+          <div class="skill-item">
+            <h5>Computer Vision</h5>
+            <p>Implemented CNN with EfficientNetB3 for Plant Disease Detection, achieving 95% validation accuracy</p>
+          </div>
+          <div class="skill-item">
+            <h5>Natural Language Processing</h5>
+            <p>Built text classification model with TF-IDF and Logistic Regression for fake news detection</p>
+          </div>
+          <div class="skill-item">
+            <h5>Model Deployment</h5>
+            <p>Deployed TensorFlow Lite models via Flask APIs, reducing inference time by 40%</p>
+          </div>
+        </div>
+
+        <!-- Tools & Technologies -->
+        <div class="skill-category">
+          <h4><i class="bi bi-tools"></i> Tools & Technologies</h4>
+          <div class="skill-item">
+            <h5>Git & GitHub</h5>
+            <p>Managed version control for 4+ team projects, implementing branching strategies and CI/CD</p>
+          </div>
+          <div class="skill-item">
+            <h5>Web Development</h5>
+            <p>Created responsive frontends with HTML/CSS/JS and RESTful backends with Flask/Spring Boot</p>
+          </div>
+          <div class="skill-item">
+            <h5>Data Visualization</h5>
+            <p>Utilized Matplotlib, Seaborn, and LIME for creating interpretable ML model insights</p>
+          </div>
+        </div>
+
+        <!-- Mathematics & Fundamentals -->
+        <div class="skill-category">
+          <h4><i class="bi bi-calculator"></i> Mathematics & Fundamentals</h4>
+          <div class="skill-item">
+            <h5>Linear Algebra & Calculus</h5>
+            <p>Applied matrix operations and derivatives in neural network backpropagation implementations</p>
+          </div>
+          <div class="skill-item">
+            <h5>Probability & Statistics</h5>
+            <p>Performed statistical analysis for model evaluation using confusion matrices and ROC curves</p>
+          </div>
+          <div class="skill-item">
+            <h5>Data Structures & Algorithms</h5>
+            <p>Optimized search algorithms reducing time complexity from O(n²) to O(n log n)</p>
+          </div>
+        </div>
+
       </div>
     </div>
-  </section>
+  </section><!-- /Skills Section -->
 
-  <!-- Resume Section -->
+  <!-- Resume Section - ENHANCED WITH EXPERIENCE -->
   <section id="resume" class="resume section">
     <div class="container section-title" data-aos="fade-up">
-      <h2 data-lang="resume-title">Hồ sơ</h2>
+      <h2>Resume</h2>
     </div>
     <div class="container">
       <div class="row">
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-          <h3 class="resume-title" data-lang="summary">Tóm tắt</h3>
+          <h3 class="resume-title">Summary</h3>
           <div class="resume-item pb-0">
-            <h4>Nguyễn Việt Anh</h4>
-            <p><em data-lang="summary-text">Sinh viên AI năm 3 chủ động và thích ứng với niềm đam mê phát triển các giải pháp phần mềm sáng tạo. Mong muốn áp dụng kiến thức học thuật vào các thách thức thực tế và đóng góp vào một nhóm năng động.</em></p>
+            <h4>Viet Anh Nguyen</h4>
+            <p><em>A proactive and adaptable third-year AI student with a passion for developing innovative software solutions. Experienced team leader with a proven track record of successfully managing and delivering multiple group projects. Eager to apply academic knowledge to real-world challenges and contribute to a dynamic team.</em></p>
             <ul>
-              <li>Quận 7, TP. Hồ Chí Minh, Việt Nam</li>
+              <li>District 7, Ho Chi Minh City, Vietnam</li>
               <li>(+84) 812 553 774</li>
               <li>ngvietanh.it@gmail.com</li>
             </ul>
           </div>
           
-          <h3 class="resume-title" data-lang="education">Học vấn</h3>
+          <h3 class="resume-title">Education</h3>
           <div class="resume-item">
-            <h4 data-lang="degree-title">Cử nhân Công nghệ Thông tin</h4>
-            <h5>2022 - Hiện tại</h5>
-            <p><em>Trường Đại học Kinh tế - Tài chính (UEF), TP.HCM</em></p>
-            <p data-lang="education-detail">Chuyên ngành Trí tuệ Nhân tạo. <strong>GPA: 3.2/4.0</strong>. Duy trì thành tích học tập tốt trong khi tích cực tham gia các dự án và workshop liên quan đến công nghệ.</p>
+            <h4>Bachelor of Information Technology</h4>
+            <h5>2022 - Present (Expected: 2026)</h5>
+            <p><em>University of Economics and Finance (UEF), HCMC</em></p>
+            <p><strong>Major:</strong> Artificial Intelligence</p>
+            <p><strong>Current GPA:</strong> 3.2/4.0</p>
+            <p><strong>Relevant Coursework:</strong> Machine Learning, Deep Learning, Computer Vision, Natural Language Processing, Data Structures & Algorithms, Database Systems, Software Engineering</p>
+            <p><strong>Academic Achievements:</strong> Maintaining a strong academic record while actively participating in tech-related projects and workshops.</p>
           </div>
         </div>
         
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="resume-title" data-lang="download-cv">Tải CV đầy đủ</h3>
+          <h3 class="resume-title">Project Leadership Experience</h3>
+          
+          <div class="experience-item">
+            <h4>Team Leader <span class="badge">Leadership</span></h4>
+            <h5>Online Library Management System | Sep 2024 - Dec 2024</h5>
+            <ul>
+              <li><strong>Led a team of 4 developers</strong> in designing and implementing a full-stack web application</li>
+              <li><strong>Coordinated project timeline</strong> and assigned tasks using Agile methodology and GitHub Projects</li>
+              <li><strong>Conducted code reviews</strong> and ensured code quality standards were maintained</li>
+              <li><strong>Facilitated weekly meetings</strong> and resolved technical conflicts within the team</li>
+              <li><strong>Result:</strong> Successfully delivered project 1 week ahead of deadline with all features implemented</li>
+            </ul>
+          </div>
+
+          <div class="experience-item">
+            <h4>Project Lead & Developer <span class="badge">Leadership</span></h4>
+            <h5>AI-Powered Applications Portfolio | 2023 - 2024</h5>
+            <ul>
+              <li><strong>Independently managed</strong> the complete lifecycle of 2 AI projects from conception to deployment</li>
+              <li><strong>Demonstrated leadership</strong> in technical decision-making and architecture design</li>
+              <li><strong>Self-directed learning:</strong> Researched and implemented cutting-edge AI techniques including Transfer Learning and Explainable AI</li>
+              <li><strong>Projects delivered:</strong> AI Fake News Detector (90% accuracy) and Plant Disease Diagnosis System (95% accuracy)</li>
+            </ul>
+          </div>
+
+          <div class="experience-item">
+            <h4>Collaborative Team Member</h4>
+            <h5>Various Academic Group Projects | 2022 - Present</h5>
+            <ul>
+              <li><strong>Participated in 5+ group projects</strong> across different courses</li>
+              <li><strong>Roles included:</strong> Backend Developer, Frontend Developer, Database Designer, and Documentation Lead</li>
+              <li><strong>Key strength:</strong> Effective communication and collaboration with diverse team members</li>
+            </ul>
+          </div>
+
+          <h3 class="resume-title" style="margin-top: 30px;">Download My Full CV</h3>
           <div class="resume-item">
-            <p data-lang="download-text">Để xem chi tiết hơn về kinh nghiệm, dự án và trình độ của tôi, vui lòng tải xuống CV đầy đủ.</p>
-            <a href="/files/Nguyen_Viet_Anh_CV.pdf" download="Nguyen_Viet_Anh_CV.pdf" class="btn btn-primary">
-              <i class="bi bi-download"></i> <span data-lang="download-btn">Tải CV</span>
-            </a>
+            <p>For a more detailed look at my experience, projects, and qualifications, please feel free to download my full curriculum vitae.</p>
+            <a href="/files/Nguyen_Viet_Anh_CV.pdf" download="Nguyen_Viet_Anh_CV.pdf" class="btn btn-primary"><i class="bi bi-download"></i> Download CV</a>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </section><!-- /Resume Section -->
 
-  <!-- Experience Section - NEW -->
-  <section id="experience" class="experience section light-background">
+  <!-- Portfolio Section - RESTRUCTURED -->
+  <section id="portfolio" class="portfolio section light-background">
     <div class="container section-title" data-aos="fade-up">
-      <h2 data-lang="experience-title">Kinh nghiệm làm việc</h2>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
-          <div class="experience-timeline">
-            
-            <div class="experience-item">
-              <h4 data-lang="exp-leader">Trưởng nhóm dự án</h4>
-              <div class="date">09/2024 - 12/2024</div>
-              <div class="company" data-lang="exp-company1">Dự án AI Plant Disease Diagnosis - UEF</div>
-              <ul>
-                <li data-lang="exp1-1">Lãnh đạo nhóm 4 người phát triển ứng dụng AI chẩn đoán bệnh cây</li>
-                <li data-lang="exp1-2">Phân công công việc, quản lý tiến độ và đảm bảo chất lượng code qua code review</li>
-                <li data-lang="exp1-3">Tổ chức daily standup meetings và sprint planning theo Agile/Scrum</li>
-                <li data-lang="exp1-4">Đạt được 95% accuracy trong model nhận diện và hoàn thành dự án đúng deadline</li>
-              </ul>
-            </div>
-            
-            <div class="experience-item">
-              <h4 data-lang="exp-leader2">Team Leader & Full-stack Developer</h4>
-              <div class="date">05/2024 - 08/2024</div>
-              <div class="company" data-lang="exp-company2">Hệ thống Quản lý Thư viện Online - Dự án học phần</div>
-              <ul>
-                <li data-lang="exp2-1">Điều phối nhóm 5 thành viên, áp dụng Git workflow để quản lý source code</li>
-                <li data-lang="exp2-2">Thiết kế kiến trúc hệ thống và database schema với 15+ tables</li>
-                <li data-lang="exp2-3">Mentoring các thành viên junior về Spring Boot và best practices</li>
-                <li data-lang="exp2-4">Tăng 40% hiệu suất làm việc nhóm thông qua pair programming sessions</li>
-              </ul>
-            </div>
-            
-            <div class="experience-item">
-              <h4 data-lang="exp-dev">AI Developer (Freelance)</h4>
-              <div class="date">01/2024 - 04/2024</div>
-              <div class="company" data-lang="exp-company3">Dự án Fake News Detection</div>
-              <ul>
-                <li data-lang="exp3-1">Phát triển độc lập ứng dụng phát hiện tin giả với Python và Streamlit</li>
-                <li data-lang="exp3-2">Implement Explainable AI (XAI) sử dụng LIME để giải thích dự đoán</li>
-                <li data-lang="exp3-3">Đạt 90% accuracy trên test dataset với 10,000+ mẫu tin tức</li>
-                <li data-lang="exp3-4">Deploy ứng dụng lên cloud và viết documentation chi tiết</li>
-              </ul>
-            </div>
-            
-            <div class="experience-item">
-              <h4 data-lang="exp-intern">Software Development Intern</h4>
-              <div class="date">07/2023 - 09/2023</div>
-              <div class="company" data-lang="exp-company4">Công ty TNHH Công nghệ XYZ</div>
-              <ul>
-                <li data-lang="exp4-1">Hỗ trợ phát triển module chat real-time cho hệ thống nội bộ</li>
-                <li data-lang="exp4-2">Học hỏi và áp dụng clean code principles trong môi trường thực tế</li>
-                <li data-lang="exp4-3">Tham gia code review và daily scrum với senior developers</li>
-                <li data-lang="exp4-4">Hoàn thành 100% tasks được giao và nhận feedback tích cực từ mentor</li>
-              </ul>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio section">
-    <div class="container section-title" data-aos="fade-up">
-      <h2 data-lang="portfolio-title">Các dự án nghiên cứu</h2>
-      <p data-lang="portfolio-subtitle">Phần này nêu bật các dự án chính và quan trọng hơn, các kỹ năng AI và insights thu được từ mỗi trải nghiệm.</p>
+      <h2>Project Case Studies</h2>
+      <p>This section highlights key projects and, more importantly, the AI-relevant skills and insights gained from each experience.</p>
     </div>
     <div class="container">
       <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
 
-        <!-- Case Study 1 -->
+        <!-- Case Study 1: Library System -->
         <div class="col-lg-6">
           <div class="portfolio-case-study">
             <img src="https://placehold.co/600x400/eee/333?text=Library+System" class="img-fluid" alt="Library System Project">
-            <h4 data-lang="project1-title">Hệ thống Quản lý Thư viện Online</h4>
-            <p class="role" data-lang="project1-role">Vai trò: Trưởng nhóm, Backend & Frontend Developer</p>
-            <p data-lang="project1-desc">Phát triển nền tảng web đầy đủ tính năng để quản lý tài nguyên thư viện, tài khoản người dùng và giao dịch mượn sách.</p>
+            <h4>Online Library Management System</h4>
+            <p class="role">Role: Team Leader, Backend & Frontend Developer</p>
+            <p>Developed a full-featured web platform to manage library resources, user accounts, and borrowing transactions.</p>
 
             <div class="takeaways">
-              <h5><i class="bi bi-lightbulb"></i> <span data-lang="key-takeaways">Bài học chính</span></h5>
+              <h5><i class="bi bi-lightbulb"></i> Key Takeaways</h5>
               <ul>
-                <li data-lang="project1-takeaway1"><strong>Quản lý dữ liệu:</strong> Có kinh nghiệm thiết kế và quản lý database có cấu trúc, kỹ năng cốt lõi để xử lý datasets trong các dự án AI.</li>
-                <li data-lang="project1-takeaway2"><strong>Truy xuất thông tin:</strong> Triển khai chức năng tìm kiếm/lọc cung cấp hiểu biết thực tế về truy xuất thông tin, nền tảng để xây dựng hệ thống gợi ý.</li>
-                <li data-lang="project1-takeaway3"><strong>Tương tác người dùng (HCI):</strong> Học cách xây dựng UI trực quan, quan trọng để tạo ứng dụng AI hiệu quả và thân thiện với người dùng.</li>
+                <li><strong>Data Management:</strong> Gained experience in designing and managing a structured database, a core skill for handling datasets in AI projects.</li>
+                <li><strong>Information Retrieval:</strong> Implementing search/filter functionalities provided a practical understanding of information retrieval, foundational for building recommendation systems.</li>
+                <li><strong>User Interaction (HCI):</strong> Learned to build an intuitive UI, crucial for creating effective and user-friendly AI-powered applications.</li>
               </ul>
             </div>
 
             <div class="github-link-btn text-center">
-              <a href="https://github.com/EthanNguyen1412/Online-Library-Management-System" class="btn btn-outline-primary" target="_blank">
-                <i class="bi bi-github"></i> <span data-lang="view-github">Xem trên GitHub</span>
-              </a>
+              <a href="https://github.com/EthanNguyen1412/Online-Library-Management-System" class="btn btn-outline-primary" target="_blank"><i class="bi bi-github"></i> View on GitHub</a>
             </div>
           </div>
         </div>
 
-        <!-- Case Study 2 -->
+        <!-- Case Study 2: ChatLAN App -->
         <div class="col-lg-6">
           <div class="portfolio-case-study">
             <img src="https://placehold.co/600x400/ddd/333?text=Chat+App" class="img-fluid" alt="ChatLAN App Project">
-            <h4 data-lang="project2-title">Ứng dụng ChatLAN nội bộ doanh nghiệp</h4>
-            <p class="role" data-lang="project2-role">Vai trò: Lập trình viên độc lập (End-to-End)</p>
-            <p data-lang="project2-desc">Xây dựng ứng dụng desktop bảo mật cho giao tiếp nội bộ qua mạng cục bộ, tập trung vào hiệu suất thời gian thực.</p>
+            <h4>Corporate Internal ChatLAN App</h4>
+            <p class="role">Sole Developer (End-to-End)</p>
+            <p>Built a secure desktop application for internal communication over a local network, focusing on real-time performance.</p>
 
             <div class="takeaways">
-              <h5><i class="bi bi-lightbulb"></i> <span data-lang="key-takeaways">Bài học chính</span></h5>
+              <h5><i class="bi bi-lightbulb"></i> Key Takeaways</h5>
               <ul>
-                <li data-lang="project2-takeaway1"><strong>Xử lý dữ liệu thời gian thực:</strong> Xử lý luồng tin nhắn trực tiếp tương tự như xử lý dữ liệu cho các mô hình AI động (ví dụ: phân tích cảm xúc trực tiếp).</li>
-                <li data-lang="project2-takeaway2"><strong>Bảo mật & Quyền riêng tư dữ liệu:</strong> Củng cố tầm quan trọng của quyền riêng tư và mã hóa dữ liệu, một cân nhắc đạo đức quan trọng trong tất cả hệ thống AI.</li>
-                <li data-lang="project2-takeaway3"><strong>Kiến trúc hệ thống:</strong> Hiểu kiến trúc client-server, nền tảng để triển khai và mở rộng các mô hình AI phân tán.</li>
+                <li><strong>Real-time Data Processing:</strong> Handling live message streams is analogous to processing data for dynamic AI models (e.g., live sentiment analysis).</li>
+                <li><strong>Data Security & Privacy:</strong> Reinforced the importance of data privacy and encryption, a critical ethical consideration in all AI systems.</li>
+                <li><strong>System Architecture:</strong> Understood client-server architecture, which is fundamental for deploying and scaling distributed AI models.</li>
               </ul>
             </div>
 
             <div class="github-link-btn text-center">
-              <a href="https://github.com/EthanNguyen1412/ChatLAN-App" class="btn btn-outline-primary" target="_blank">
-                <i class="bi bi-github"></i> <span data-lang="view-github">Xem trên GitHub</span>
-              </a>
+              <a href="https://github.com/EthanNguyen1412/ChatLAN-App" class="btn btn-outline-primary" target="_blank"><i class="bi bi-github"></i> View on GitHub</a>
             </div>
           </div>
         </div>
 
-        <!-- Case Study 3 -->
+        <!-- Case Study 3: AI Fake News Detector  -->
         <div class="col-lg-6">
           <div class="portfolio-case-study">
             <img src="https://placehold.co/600x400/ffc107/ffffff?text=Fake+News+Detector" class="img-fluid" alt="AI Fake News Detector Project">
-            <h4 data-lang="project3-title">AI Phát hiện Tin giả</h4>
-            <p class="role" data-lang="project3-role">Vai trò: Lập trình viên độc lập (End-to-End)</p>
-            <p data-lang="project3-desc">Ứng dụng web tương tác phân loại bài báo là Thật hoặc Giả, có tính năng giải thích model sử dụng LIME để xây dựng lòng tin và tính minh bạch của mô hình.</p>
+            <h4>AI Fake News Detector</h4>
+            <p class="role">Role: Sole Developer (End-to-End)</p>
+            <p>An interactive web application that classifies news articles as Real or Fake, featuring model explanations using LIME to build user trust and model transparency.</p>
             
             <div class="takeaways">
-              <h5><i class="bi bi-lightbulb"></i> <span data-lang="key-takeaways">Bài học chính</span></h5>
+              <h5><i class="bi bi-lightbulb"></i> Key Takeaways</h5>
               <ul>
-                <li data-lang="project3-takeaway1"><strong>Triển khai AI có thể giải thích (XAI):</strong> Tích hợp thành công thư viện LIME để cung cấp giải thích trực quan, dễ hiểu cho dự đoán của mô hình, thể hiện hiểu biết sâu về tính minh bạch của mô hình.</li>
-                <li data-lang="project3-takeaway2"><strong>Ứng dụng dữ liệu Full-Stack:</strong> Xây dựng và triển khai dự án machine learning end-to-end sử dụng Streamlit cho UI tương tác và Scikit-learn cho mô hình phân loại.</li>
-                <li data-lang="project3-takeaway3"><strong>Pipeline ML hoàn chỉnh:</strong> Quản lý toàn bộ vòng đời mô hình từ training trong Jupyter Notebook đến lưu mô hình cuối cùng và vectorizer với Pickle để triển khai hiệu quả.</li>
+                <li><strong>Explainable AI (XAI) Implementation:</strong> Successfully integrated the LIME library to provide visual, human-interpretable explanations for model predictions, demonstrating a deep understanding of model transparency.</li>
+                <li><strong>Full-Stack Data Application:</strong> Built and deployed an end-to-end machine learning project using Streamlit for the interactive UI and Scikit-learn for the classification model.</li>
+                <li><strong>Complete ML Pipeline:</strong> Managed the entire model lifecycle from training in a Jupyter Notebook to saving the final model and vectorizer with Pickle for efficient deployment.</li>
               </ul>
             </div>
 
             <div class="github-link-btn text-center">
-              <a href="https://github.com/EthanNguyen1412/fake-news-detector.git" class="btn btn-outline-primary" target="_blank">
-                <i class="bi bi-github"></i> <span data-lang="view-github">Xem trên GitHub</span>
-              </a>
+              <a href="https://github.com/EthanNguyen1412/fake-news-detector.git" class="btn btn-outline-primary" target="_blank"><i class="bi bi-github"></i> View on GitHub</a>
             </div>
           </div>
         </div>
 
-        <!-- Case Study 4 -->
+        <!-- Case Study 4: AI Plant Disease Diagnosis -->
         <div class="col-lg-6">
           <div class="portfolio-case-study">
             <img src="https://placehold.co/600x400/28a745/ffffff?text=AI+Plant+Diagnosis" class="img-fluid" alt="AI Plant Disease Diagnosis Project">
-            <h4 data-lang="project4-title">AI Chẩn đoán Bệnh Cây trồng</h4>
-            <p class="role" data-lang="project4-role">Vai trò: Lập trình viên độc lập (End-to-End)</p>
-            <p data-lang="project4-desc">Ứng dụng cho phép người dùng tải lên hình ảnh lá cây, và mô hình AI sẽ phân tích để xác định các bệnh tiềm ẩn, hiển thị dự đoán và mức độ tin cậy.</p>
+            <h4>AI Plant Disease Diagnosis</h4>
+            <p class="role">Role: Sole Developer (End-to-End)</p>
+            <p>The application allows users to upload an image of a plant leaf, and the AI model will analyze it to identify potential diseases, displaying the prediction and confidence level.</p>
 
             <div class="takeaways">
-              <h5><i class="bi bi-lightbulb"></i> <span data-lang="key-takeaways">Bài học chính</span></h5>
+              <h5><i class="bi bi-lightbulb"></i> Key Takeaways</h5>
               <ul>
-                <li data-lang="project4-takeaway1"><strong>Triển khai AI Full-Stack:</strong> Tích hợp mô hình TensorFlow Lite vào Flask backend với RESTful API, và xây dựng frontend responsive sử dụng HTML/CSS/JS cho trải nghiệm người dùng hoàn chỉnh.</li>
-                <li data-lang="project4-takeaway2"><strong>Computer Vision nâng cao:</strong> Triển khai và tinh chỉnh CNN (EfficientNetB3) sử dụng Transfer Learning và kỹ thuật data augmentation để giải quyết bài toán phân loại hình ảnh thực tế.</li>
-                <li data-lang="project4-takeaway3"><strong>MLOps & Tối ưu hóa:</strong> Có kinh nghiệm thực tế chuyển đổi mô hình Keras sang định dạng TFLite tối ưu và debug các vấn đề phức tạp về bộ nhớ và tương thích phiên bản cho môi trường production.</li>
+                <li><strong>Full-Stack AI Deployment:</strong> Integrated a TensorFlow Lite model into a Flask backend with a RESTful API, and built a responsive frontend using HTML/CSS/JS for a complete user experience.</li>
+                <li><strong>Advanced Computer Vision:</strong> Implemented and fine-tuned a CNN (EfficientNetB3) using Transfer Learning and data augmentation techniques to solve a real-world image classification problem.</li>
+                <li><strong>MLOps & Optimization:</strong> Gained hands-on experience converting a Keras model to the optimized TFLite format and debugging complex memory and version compatibility issues for production environments.</li>
               </ul>
             </div>
 
             <div class="github-link-btn text-center">
-              <a href="https://github.com/EthanNguyen1412/Plant_Disease_Diagnosis_AI.git" class="btn btn-outline-primary" target="_blank">
-                <i class="bi bi-github"></i> <span data-lang="view-github">Xem trên GitHub</span>
-              </a>
+              <a href="https://github.com/EthanNguyen1412/Plant_Disease_Diagnosis_AI.git" class="btn btn-outline-primary" target="_blank"><i class="bi bi-github"></i> View on GitHub</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </section><!-- /Portfolio Section -->
 
   <!-- Contact Section -->
   <section id="contact" class="contact section">
     <div class="container section-title" data-aos="fade-up">
-      <h2 data-lang="contact-title">Liên hệ</h2>
+      <h2>Contact</h2>
     </div>
     <div class="container" data-aos="fade-up" data-aos-delay="100">
       <div class="row gy-4">
@@ -579,21 +526,21 @@
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
-                <h3 data-lang="address">Địa chỉ</h3>
-                <p>Quận 7, TP. Hồ Chí Minh, Việt Nam</p>
+                <h3>Address</h3>
+                <p>District 7, Ho Chi Minh City, Vietnam</p>
               </div>
             </div>
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
               <i class="bi bi-telephone flex-shrink-0"></i>
               <div>
-                <h3 data-lang="call-me">Gọi cho tôi</h3>
+                <h3>Call Me</h3>
                 <p>+84 812 553 774</p>
               </div>
             </div>
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
-                <h3 data-lang="email-me">Email</h3>
+                <h3>Email Me</h3>
                 <p>ngvietanh.it@gmail.com</p>
               </div>
             </div>
@@ -603,239 +550,14 @@
           <form th:action="@{/send-message}" method="post" data-aos="fade-up" data-aos-delay="200">
             <div class="row gy-4">
               <div class="col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Tên của bạn" required="" data-lang-placeholder="your-name">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
               </div>
               <div class="col-md-6 ">
-                <input type="email" class="form-control" name="email" placeholder="Email của bạn" required="" data-lang-placeholder="your-email">
+                <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
               </div>
               <div class="col-md-12">
-                <input type="text" class="form-control" name="subject" placeholder="Tiêu đề" required="" data-lang-placeholder="subject">
+                <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
               </div>
               <div class="col-md-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Nội dung" required="" data-lang-placeholder="message"></textarea>
+                <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
               </div>
-              <div class="col-md-12 text-center">
-                <div th:if="${messageStatus}" class="my-3">
-                  <div th:class="${messageStatus == 'SUCCESS' ? 'sent-message' : 'error-message'}" 
-                       th:text="${messageStatus == 'SUCCESS' ? 'Tin nhắn của bạn đã được gửi. Cảm ơn!' : 'Gửi tin nhắn thất bại. Vui lòng thử lại.'}"
-                       data-lang-success="message-sent"
-                       data-lang-error="message-failed">
-                  </div>
-                </div>
-                <button type="submit" class="btn btn-primary" data-lang="send-message">Gửi tin nhắn</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer id="footer" class="footer dark-background">
-  <div class="container">
-    <div class="copyright text-center ">
-      <p>© <span data-lang="copyright">Bản quyền</span> <strong class="px-1 sitename">Nguyễn Việt Anh</strong> <span data-lang="all-rights">Mọi quyền được bảo lưu</span></p>
-    </div>
-    <div class="credits">
-      <span data-lang="designed-by">Thiết kế bởi</span> <a href="https://bootstrapmade.com/">BootstrapMade</a>
-    </div>
-  </div>
-</footer>
-
-<!-- Scroll Top -->
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-<!-- Preloader -->
-<div id="preloader"></div>
-
-<!-- Vendor JS Files -->
-<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/vendor/aos/aos.js"></script>
-<script src="/assets/vendor/typed.js/typed.umd.js"></script>
-<script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-<script src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
-<script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-<script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-<!-- Main JS File -->
-<script src="/assets/js/main.js"></script>
-
-<!-- Language Switcher Script -->
-<script>
-const translations = {
-  vi: {
-    // Menu
-    'menu-home': 'Trang chủ',
-    'menu-about': 'Giới thiệu',
-    'menu-skills': 'Kỹ năng',
-    'menu-resume': 'Hồ sơ',
-    'menu-experience': 'Kinh nghiệm',
-    'menu-portfolio': 'Dự án',
-    'menu-contact': 'Liên hệ',
-    
-    // Hero
-    'hero-subtitle': 'Tôi là ',
-    'hero-typed': 'Sinh viên AI, Lập trình viên, Trưởng nhóm, Người học suốt đời',
-    
-    // About
-    'about-title': 'Giới thiệu về tôi',
-    'about-intro': 'Tôi là sinh viên năm 3 chuyên ngành Trí tuệ Nhân tạo tại Trường Đại học Kinh tế - Tài chính TP.HCM. Tôi sở hữu tư duy học hỏi mạnh mẽ, thái độ tích cực và khả năng thích ứng cao. Với tính cách hướng ngoại và nhiệt tình, tôi luôn háo hức khám phá kiến thức mới, đặc biệt là các công nghệ tiên tiến liên quan đến AI và khoa học dữ liệu.',
-    'about-subtitle': 'Sinh viên AI & Lập trình viên đầy tham vọng',
-    'about-description': 'Tôi là người làm việc nhóm có trách nhiệm, thích hợp tác và cải tiến liên tục. Tôi đam mê thể thao và thể dục, tin rằng lối sống lành mạnh hỗ trợ phát triển toàn diện cá nhân.',
-    'phone': 'Điện thoại:',
-    'city': 'Thành phố:',
-    'degree': 'Trình độ:',
-    'undergraduate': 'Đại học',
-    'about-hobbies': 'Trong thời gian rảnh, tôi thích nghiên cứu và thử nghiệm các công nghệ mới, cũng như tham gia vào các dự án nhóm, sự kiện kỹ thuật và các hoạt động để củng cố cả kỹ năng chuyên môn và giao tiếp.',
-    
-    // Skills
-    'skills-title': 'Kỹ năng',
-    'skills-programming': 'Ngôn ngữ lập trình & Framework',
-    'skills-tools': 'Công cụ & Công nghệ',
-    'skills-ai': 'AI & Machine Learning',
-    'skills-math': 'Toán học & Thống kê',
-    'linear-algebra': 'Đại số tuyến tính:',
-    'calculus': 'Giải tích:',
-    'probability': 'Xác suất & Thống kê:',
-    
-    // Contact
-    'contact-title': 'Liên hệ',
-    'address': 'Địa chỉ',
-    'call-me': 'Gọi cho tôi',
-    'email-me': 'Email',
-    'send-message': 'Gửi tin nhắn',
-    'view-github': 'Xem trên GitHub',
-    'key-takeaways': 'Bài học chính'
-  },
-  en: {
-    // Menu
-    'menu-home': 'Home',
-    'menu-about': 'About',
-    'menu-skills': 'Skills',
-    'menu-resume': 'Resume',
-    'menu-experience': 'Experience',
-    'menu-portfolio': 'Portfolio',
-    'menu-contact': 'Contact',
-    
-    // Hero
-    'hero-subtitle': "I'm an ",
-    'hero-typed': 'AI Student, Developer, Team Leader, Lifelong Learner',
-    
-    // About
-    'about-title': 'About Me',
-    'about-intro': 'I am a third-year Artificial Intelligence student at the University of Economics and Finance in Ho Chi Minh City. I possess a strong learning mindset, a positive attitude, and a high level of adaptability. With an outgoing and enthusiastic personality, I am always eager to explore new knowledge, particularly in advanced technologies related to AI and data science.',
-    'about-subtitle': 'AI Student & Aspiring Software Developer',
-    'about-description': 'I am a responsible team player who enjoys collaboration and continuous improvement. I am passionate about sports and fitness, believing that a healthy lifestyle supports holistic personal growth.',
-    'phone': 'Phone:',
-    'city': 'City:',
-    'degree': 'Degree:',
-    'undergraduate': 'Undergraduate',
-    'about-hobbies': 'In my free time, I enjoy researching and experimenting with new technologies, as well as participating in group projects, technical events, and activities to strengthen both my professional and interpersonal skills.',
-    
-    // Skills
-    'skills-title': 'Skills',
-    'skills-programming': 'Programming Languages & Frameworks',
-    'skills-tools': 'Tools & Technologies',
-    'skills-ai': 'AI & Machine Learning',
-    'skills-math': 'Mathematics & Statistics',
-    'linear-algebra': 'Linear Algebra:',
-    'calculus': 'Calculus:',
-    'probability': 'Probability & Statistics:',
-    
-    // Contact
-    'contact-title': 'Contact',
-    'address': 'Address',
-    'call-me': 'Call Me',
-    'email-me': 'Email Me',
-    'send-message': 'Send Message',
-    'view-github': 'View on GitHub',
-    'key-takeaways': 'Key Takeaways'
-  }
-};
-
-function switchLanguage(lang) {
-  // Update button states
-  document.querySelectorAll('.language-switcher button').forEach(btn => {
-    btn.classList.remove('active');
-  });
-  event.target.classList.add('active');
-  
-  // Update HTML lang attribute
-  document.documentElement.lang = lang;
-  
-  // Update typed text
-  const typedElement = document.querySelector('.typed');
-  if (typedElement) {
-    const items = lang === 'vi' 
-      ? 'Sinh viên AI, Lập trình viên, Trưởng nhóm, Người học suốt đời'
-      : 'AI Student, Developer, Team Leader, Lifelong Learner';
-    typedElement.setAttribute('data-typed-items', items);
-    
-    // Reinitialize Typed.js
-    if (window.typed) {
-      window.typed.destroy();
-    }
-    window.typed = new Typed('.typed', {
-      strings: items.split(', '),
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
-    });
-  }
-  
-  // Update all translatable elements
-  document.querySelectorAll('[data-lang]').forEach(elem => {
-    const key = elem.getAttribute('data-lang');
-    if (translations[lang][key]) {
-      elem.textContent = translations[lang][key];
-    }
-  });
-  
-  // Update placeholders
-  document.querySelectorAll('[data-lang-placeholder]').forEach(elem => {
-    const key = elem.getAttribute('data-lang-placeholder');
-    const placeholders = {
-      vi: {
-        'your-name': 'Tên của bạn',
-        'your-email': 'Email của bạn',
-        'subject': 'Tiêu đề',
-        'message': 'Nội dung'
-      },
-      en: {
-        'your-name': 'Your Name',
-        'your-email': 'Your Email',
-        'subject': 'Subject',
-        'message': 'Message'
-      }
-    };
-    if (placeholders[lang][key]) {
-      elem.placeholder = placeholders[lang][key];
-    }
-  });
-  
-  // Update name heading
-  const sitename = document.querySelector('.sitename');
-  if (sitename) {
-    sitename.textContent = lang === 'vi' ? 'Nguyễn Việt Anh' : 'Viet Anh Nguyen';
-  }
-  
-  // Store language preference
-  localStorage.setItem('preferredLanguage', lang);
-}
-
-// Load saved language preference
-document.addEventListener('DOMContentLoaded', function() {
-  const savedLang = localStorage.getItem('preferredLanguage') || 'vi';
-  if (savedLang === 'en') {
-    switchLanguage('en');
-  }
-});
-</script>
-
-</body>
-</html>
