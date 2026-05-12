@@ -1,0 +1,6 @@
+CV MASTER (portfolio content) - two language files:
+
+  English:  C:\Porfolio\docs\CV_MASTER_EN.md
+  Vietnamese: C:\Porfolio\docs\CV_MASTER_VI.md
+
+Open the .md files in Cursor / VS Code. To open in Notepad, rename copy to .txt or set Notepad to UTF-8.

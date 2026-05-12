@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Portfolio | Viet Anh Nguyen</title>
-  <meta content="The portfolio and project showcase of Viet Anh Nguyen, an AI Student and Developer." name="description">
+  <meta content="Portfolio of Viet Anh Nguyen — third-year AI major at UEF, hands-on AI, automation, and full-stack development." name="description">
   <meta content="portfolio, cv, resume, developer, ai student" name="keywords">
 
   <!-- Favicons -->
@@ -29,18 +29,78 @@
 
   <!-- Custom Styles for Project Section -->
   <style>
+    :root {
+      --surface: #ffffff;
+      --surface-muted: #f8fafc;
+      --text-main: #15202b;
+      --text-muted: #5b6673;
+      --accent: #1da1f2;
+      --soft-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+    .section {
+      padding: 78px 0;
+    }
+    .section-title p {
+      max-width: 760px;
+      margin: 10px auto 0;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .hero .container {
+      padding: 28px 24px;
+      max-width: 640px;
+      margin-left: 24px;
+    }
+    #about .about-photo {
+      border-radius: 16px;
+      box-shadow: var(--soft-shadow);
+    }
+    #about .about-panel {
+      background: var(--surface);
+      border-radius: 16px;
+      box-shadow: var(--soft-shadow);
+      padding: 28px;
+    }
+    #about .content ul li {
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
     .portfolio-case-study {
-      background: #ffffff;
+      background: var(--surface);
       padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border-radius: 14px;
+      box-shadow: var(--soft-shadow);
       height: 100%;
       display: flex;
       flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .portfolio-case-study:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.14);
+    }
+    .portfolio-case-study.featured-ai {
+      border: 2px solid var(--accent);
+      box-shadow: 0 10px 30px rgba(29, 161, 242, 0.2);
+      position: relative;
+    }
+    .featured-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #1da1f2, #0d6efd);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 15px;
+      letter-spacing: 0.2px;
     }
     .portfolio-case-study img {
-      border-radius: 8px;
+      border-radius: 10px;
       margin-bottom: 20px;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
     }
     .portfolio-case-study h4 {
       font-size: 20px;
@@ -54,8 +114,8 @@
       margin-bottom: 15px;
     }
     .takeaways {
-      background: #f5f8fa;
-      border-left: 4px solid #1da1f2;
+      background: var(--surface-muted);
+      border-left: 4px solid var(--accent);
       padding: 15px;
       margin-top: 20px;
       border-radius: 0 8px 8px 0;
@@ -102,12 +162,13 @@
     
     /* Enhanced Skills Section */
     .skill-item {
-      background: #ffffff;
+      background: var(--surface);
       padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-      border-left: 4px solid #1da1f2;
+      border-radius: 14px;
+      box-shadow: var(--soft-shadow);
+      margin-bottom: 0;
+      border-left: 4px solid var(--accent);
+      height: 100%;
     }
     .skill-item h4 {
       color: #15202b;
@@ -126,15 +187,101 @@
     }
     .skill-item li:before {
       content: "✓";
-      color: #1da1f2;
+      color: var(--accent);
       font-weight: bold;
       margin-right: 10px;
+    }
+    #resume .resume-item {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: var(--soft-shadow);
+      margin-bottom: 18px;
+      border-left: 4px solid #dbeafe;
+    }
+    #contact .contact-card,
+    #contact .contact-form-card {
+      background: var(--surface);
+      border-radius: 16px;
+      box-shadow: var(--soft-shadow);
+      padding: 24px;
+      height: 100%;
+    }
+    @media (max-width: 768px) {
+      .section {
+        padding: 64px 0;
+      }
+      .hero .container {
+        margin: 0 12px;
+        padding: 22px 18px;
+      }
+      #about .about-panel {
+        padding: 22px;
+      }
+      .portfolio-case-study img {
+        height: 200px;
+      }
+    }
+
+    /* Language Switcher */
+    .lang-switcher {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      padding: 4px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
+    }
+    .lang-switcher button {
+      background: transparent;
+      color: #e2e8f0;
+      border: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      line-height: 1;
+    }
+    .lang-switcher button:hover {
+      color: #ffffff;
+    }
+    .lang-switcher button.active {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(29, 161, 242, 0.35);
+    }
+    @media (max-width: 575px) {
+      .lang-switcher {
+        top: 12px;
+        right: 12px;
+        padding: 3px;
+      }
+      .lang-switcher button {
+        font-size: 12px;
+        padding: 5px 10px;
+      }
     }
   </style>
 
 </head>
 
 <body class="index-page">
+
+<!-- Language Switcher -->
+<div class="lang-switcher" role="group" aria-label="Language switcher">
+  <button type="button" data-lang="en" class="active">EN</button>
+  <button type="button" data-lang="vi">VI</button>
+</div>
 
 <header id="header" class="header dark-background d-flex flex-column">
   <i class="header-toggle d-xl-none bi bi-list"></i>
@@ -151,12 +298,12 @@
   </div>
   <nav id="navmenu" class="navmenu">
     <ul>
-      <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i> Home</a></li>
-      <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-      <li><a href="#skills"><i class="bi bi-gear navicon"></i> Skills</a></li>
-      <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-      <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-      <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+      <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i> <span data-i18n="nav.home">Home</span></a></li>
+      <li><a href="#about"><i class="bi bi-person navicon"></i> <span data-i18n="nav.about">About</span></a></li>
+      <li><a href="#skills"><i class="bi bi-gear navicon"></i> <span data-i18n="nav.skills">Skills</span></a></li>
+      <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> <span data-i18n="nav.resume">Resume</span></a></li>
+      <li><a href="#portfolio"><i class="bi bi-images navicon"></i> <span data-i18n="nav.portfolio">Portfolio</span></a></li>
+      <li><a href="#contact"><i class="bi bi-envelope navicon"></i> <span data-i18n="nav.contact">Contact</span></a></li>
     </ul>
   </nav>
 </header>
@@ -168,42 +315,42 @@
     <img src="/assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
     <div class="container" data-aos="fade-up" data-aos-delay="100">
       <h2>Viet Anh Nguyen</h2>
-      <p>I'm an <span class="typed" data-typed-items="AI Student, Developer, Team Leader, Lifelong Learner"></span></p>
+      <p><span data-i18n="hero.intro">I'm an</span> <span class="typed" data-typed-items="AI Engineer, Full-stack Developer, Automation Developer, Team Leader" data-typed-key="hero.typed"></span></p>
     </div>
   </section><!-- /Hero Section -->
 
   <!-- About Section -->
   <section id="about" class="about section">
     <div class="container section-title" data-aos="fade-up">
-      <h2>About Me</h2>
-      <p>I am a third-year Artificial Intelligence student at the University of Economics and Finance in Ho Chi Minh City. I possess a strong learning mindset, a positive attitude, and a high level of adaptability. With an outgoing and enthusiastic personality, I am always eager to explore new knowledge, particularly in advanced technologies related to AI and data science.</p>
+      <h2 data-i18n="about.title">About Me</h2>
+      <p data-i18n="about.desc">Third-year Information Technology student majoring in Artificial Intelligence at the University of Economics and Finance, Ho Chi Minh City (UEF). Hands-on experience developing AI systems, software automation, and full-stack web products. Focused on growing as an AI Engineer.</p>
     </div>
     <div class="container" data-aos="fade-up" data-aos-delay="100">
       <div class="row gy-4 justify-content-center">
         <div class="col-lg-4">
-          <img src="/images/Nguyen_Viet_Anh.jpg" class="img-fluid" alt="">
+          <img src="/images/Nguyen_Viet_Anh.jpg" class="img-fluid about-photo" alt="">
         </div>
-        <div class="col-lg-8 content">
-          <h2>AI Student &amp; Aspiring Software Developer.</h2>
-          <p class="fst-italic py-3">
-            I am a responsible team player who enjoys collaboration and continuous improvement. I am passionate about sports and fitness, believing that a healthy lifestyle supports holistic personal growth.
+        <div class="col-lg-8 content about-panel">
+          <h2 data-i18n="about.heading">AI &amp; Full-stack Developer — aspiring AI Engineer.</h2>
+          <p class="fst-italic py-3" data-i18n="about.intro">
+            I take projects from model and automation logic through to deployed products: computer vision on real field data, desktop automation pipelines, and production web stacks with CI/CD.
           </p>
           <div class="row">
             <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+84 812 553 774</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>District 7, HCMC, Vietnam</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about.phone">Phone:</strong> <span>+84 812 553 774</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about.city">City:</strong> <span data-i18n="about.cityValue">District 7, HCMC, Vietnam</span></li>
               </ul>
             </div>
             <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Undergraduate</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>ngvietanh.it@gmail.com</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about.degree">Degree:</strong> <span data-i18n="about.degreeValue">Undergraduate</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about.email">Email:</strong> <span>ngvietanh.it@gmail.com</span></li>
               </ul>
             </div>
           </div>
-          <p class="py-3">
-            In my free time, I enjoy researching and experimenting with new technologies, as well as participating in group projects, technical events, and activities to strengthen both my professional and interpersonal skills.
+          <p class="py-3" data-i18n="about.outro">
+            I keep building on Coursera and Microsoft certifications, hackathons (e.g. SUI × UEF), and production work with real users so skills stay aligned with industry practice.
           </p>
         </div>
       </div>
@@ -213,49 +360,76 @@
   <!-- Skills Section - Enhanced -->
   <section id="skills" class="skills section light-background">
     <div class="container section-title" data-aos="fade-up">
-      <h2>Technical Skills & Expertise</h2>
-      <p>Hands-on experience with modern technologies and frameworks, demonstrated through real-world projects</p>
+      <h2 data-i18n="skills.title">Technical Skills & Expertise</h2>
+      <p data-i18n="skills.desc">Each item below states how I applied the skill in a real project or product — not a generic stack list.</p>
     </div>
     <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <div class="row">
-        <div class="col-lg-6">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 d-flex">
           <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
-            <h4><i class="bi bi-code-slash"></i> Programming Languages</h4>
+            <h4><i class="bi bi-robot"></i> <span data-i18n="skills.ai.title">AI / Machine Learning</span></h4>
             <ul>
-              <li>Java & Spring Boot: Built Enterprise Library Management System with REST APIs</li>
-              <li>Python: Developed Fake News Detector with 90% accuracy using ML algorithms</li>
-              <li>JavaScript: Created real-time ChatLAN application with WebSocket implementation</li>
-            </ul>
-          </div>
-          
-          <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
-            <h4><i class="bi bi-database"></i> Database & Data Management</h4>
-            <ul>
-              <li>MySQL & PostgreSQL: Designed normalized database schemas for multiple projects</li>
-              <li>Data Processing: Experience with Pandas, NumPy for data analysis and preprocessing</li>
-              <li>Database Optimization: Implemented indexing and query optimization techniques</li>
+              <li data-i18n-html="skills.ai.1"><strong>Deep learning &amp; neural networks:</strong> <em>Plant Disease Diagnosis</em> — EfficientNetB3 + TFLite end-to-end (solo precursor); <em>Mắt Thần Nông</em> — extended to field crops and team research with stronger evaluation.</li>
+              <li data-i18n-html="skills.ai.2"><strong>Classical ML &amp; explainability:</strong> <em>Fake News Detector</em> — Scikit-learn text classification end-to-end with LIME for interpretable predictions.</li>
+              <li data-i18n-html="skills.ai.3"><strong>Computer vision (YOLOv8, OpenCV):</strong> <em>Mắt Thần Nông</em> — detection on real field data; <em>AutoLastWar</em> — frame-accurate screen state for closed-loop automation.</li>
             </ul>
           </div>
         </div>
-        
-        <div class="col-lg-6">
-          <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
-            <h4><i class="bi bi-robot"></i> AI & Machine Learning</h4>
+
+        <div class="col-lg-4 col-md-6 d-flex">
+          <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
+            <h4><i class="bi bi-cpu"></i> <span data-i18n="skills.aidev.title">AI-Driven Development &amp; LLM Ecosystem</span></h4>
             <ul>
-              <li>TensorFlow & Keras: Built CNN model for Plant Disease Detection with 95% accuracy</li>
-              <li>Scikit-learn: Implemented classification algorithms for fake news detection</li>
-              <li>Computer Vision: Experience with image preprocessing and CNN architectures</li>
-              <li>Explainable AI: Integrated LIME for model interpretability and transparency</li>
+              <li data-i18n-html="skills.aidev.1"><strong>Agent workflow:</strong> Repeatable edit → test → fix loops with Cursor on <em>AutoLastWar</em> vision modules and <em>autobotlastwar.com</em> backend.</li>
+              <li data-i18n-html="skills.aidev.2"><strong>Context packaging:</strong> Structured Markdown/JSON briefs so LLMs align with repo layout — critical for <em>AutoLastWar</em> reverse-engineering notes and API code.</li>
+              <li data-i18n-html="skills.aidev.3"><strong>Error-driven refinement:</strong> Tight feedback loop from terminal and logs when shipping FastAPI + automation code to production.</li>
+              <li data-i18n-html="skills.aidev.4"><strong>LLM stack:</strong> Gemini, GPT-4o, Claude via Cursor and Google AI Studio — same tools used across research and product codepaths.</li>
+              <li data-i18n-html="skills.aidev.5"><strong>Measured impact:</strong> Accelerated OpenCV components for <em>AutoLastWar</em>; cut YOLOv8 iteration time on <em>Mắt Thần Nông</em> from weeks to days.</li>
             </ul>
           </div>
-          
-          <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
-            <h4><i class="bi bi-tools"></i> Development Tools & Practices</h4>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex">
+          <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
+            <h4><i class="bi bi-chat-square-text"></i> <span data-i18n="skills.prompt.title">Prompt Engineering — Core Techniques</span></h4>
             <ul>
-              <li>Git & GitHub: Version control for all projects with collaborative workflows</li>
-              <li>Flask & Streamlit: Deployed ML models as interactive web applications</li>
-              <li>Agile Methodology: Led team projects using Scrum principles and sprint planning</li>
-              <li>Model Deployment: Experience with TensorFlow Lite optimization for production</li>
+              <li data-i18n-html="skills.prompt.1"><strong>Chain-of-Thought (CoT):</strong> Used to decompose OpenCV and automation bugs in <em>AutoLastWar</em> and full-stack issues on <em>autobotlastwar.com</em> before coding.</li>
+              <li data-i18n-html="skills.prompt.2"><strong>Few-shot &amp; zero-shot:</strong> Shortened iteration on <em>Mắt Thần Nông</em> YOLO experiments and <em>Fake News Detector</em> modeling notes via Cursor / AI Studio.</li>
+              <li data-i18n-html="skills.prompt.3"><strong>System instructions &amp; personas:</strong> Stable agent behavior when generating CV helpers and API glue code — same toolchain as production work (Cursor, Google AI Studio).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex">
+          <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
+            <h4><i class="bi bi-layers"></i> <span data-i18n="skills.web.title">Web (Full-stack)</span></h4>
+            <ul>
+              <li data-i18n-html="skills.web.1"><strong>Next.js 14:</strong> <em>autobotlastwar.com</em> — App Router, checkout and dashboard UX for a live SaaS tied to the automation product.</li>
+              <li data-i18n-html="skills.web.2"><strong>FastAPI:</strong> Same product — auth, subscriptions, and operational APIs co-developed with the bot ecosystem.</li>
+              <li data-i18n-html="skills.web.3"><strong>PostgreSQL:</strong> Users, billing, and ops tables designed for production traffic from ~200 MAU-class usage.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex">
+          <div class="skill-item" data-aos="fade-up" data-aos-delay="600">
+            <h4><i class="bi bi-lightning-charge"></i> <span data-i18n="skills.auto.title">Automation &amp; reverse engineering</span></h4>
+            <ul>
+              <li data-i18n-html="skills.auto.1"><strong>Python:</strong> <em>AutoLastWar</em> — orchestrates capture → inference → action; shared tooling with ML notebooks and FastAPI services.</li>
+              <li data-i18n-html="skills.auto.2"><strong>MSS + OpenCV:</strong> <em>AutoLastWar</em> — low-latency capture and template/state detection feeding the bot decision loop.</li>
+              <li data-i18n-html="skills.auto.3"><strong>PyDirectInput:</strong> <em>AutoLastWar</em> — input automation synchronized with vision feedback for stable real-world runs.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex">
+          <div class="skill-item" data-aos="fade-up" data-aos-delay="700">
+            <h4><i class="bi bi-tools"></i> <span data-i18n="skills.tools.title">DevOps &amp; tooling</span></h4>
+            <ul>
+              <li data-i18n-html="skills.tools.1"><strong>CI/CD:</strong> <em>autobotlastwar.com</em> — GitHub Actions pipelines to build and deploy the FastAPI + Next.js stack to VPS.</li>
+              <li data-i18n-html="skills.tools.2"><strong>IDE &amp; AI-assisted dev:</strong> Daily delivery with WebStorm + Cursor across <em>AutoLastWar</em>, web services, and ML repos.</li>
+              <li data-i18n-html="skills.tools.3"><strong>Google AI Studio:</strong> Rapid model and prompt experiments supporting YOLO / CV research workflows for <em>Mắt Thần Nông</em>.</li>
+              <li data-i18n-html="skills.tools.4"><strong>Git/GitHub:</strong> Branching and releases for solo products and team research (<em>Mắt Thần Nông</em>, coursework).</li>
             </ul>
           </div>
         </div>
@@ -266,62 +440,79 @@
   <!-- Resume Section - Enhanced -->
   <section id="resume" class="resume section">
     <div class="container section-title" data-aos="fade-up">
-      <h2>Resume</h2>
+      <h2 data-i18n="resume.title">Resume</h2>
     </div>
     <div class="container">
       <div class="row">
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-          <h3 class="resume-title">Summary</h3>
+          <h3 class="resume-title" data-i18n="resume.summary">Summary</h3>
           <div class="resume-item pb-0">
             <h4>Viet Anh Nguyen</h4>
-            <p><em>A proactive and adaptable third-year AI student with proven leadership experience in group projects. Passionate about developing innovative software solutions and applying machine learning to solve real-world problems.</em></p>
+            <p><em data-i18n="resume.summaryDesc">Targeting AI Engineer roles: end-to-end ML/CV (train → evaluate → integrate), plus APIs and automation at scale. Third-year AI major at UEF — led a crop-disease AI product past the product review round and commercialized a vision-driven automation product with ~200 active users.</em></p>
             <ul>
-              <li>District 7, Ho Chi Minh City, Vietnam</li>
+              <li data-i18n="resume.address">District 7, Ho Chi Minh City, Vietnam</li>
               <li>(+84) 812 553 774</li>
               <li>ngvietanh.it@gmail.com</li>
             </ul>
           </div>
           
-          <h3 class="resume-title">Education</h3>
+          <h3 class="resume-title" data-i18n="resume.education">Education</h3>
           <div class="resume-item">
-            <h4>Bachelor of Information Technology</h4>
-            <h5>2022 - Present</h5>
-            <p><em>University of Economics and Finance (UEF), HCMC</em></p>
-            <p><strong>GPA: 3.2/4.0</strong></p>
-            <p>Specializing in Artificial Intelligence. Maintaining a strong academic record while actively participating in tech-related projects and workshops. Focus areas include Machine Learning, Deep Learning, and Data Science.</p>
+            <h4 data-i18n="resume.degree">Bachelor of Information Technology</h4>
+            <h5 data-i18n="resume.eduDates">2022 - Present</h5>
+            <p><em data-i18n="resume.eduSchool">University of Economics and Finance (UEF), HCMC</em></p>
+            <p data-i18n="resume.eduDesc">Third-year undergraduate in Information Technology, majoring in Artificial Intelligence. Coursework and projects emphasize machine learning, deep learning, computer vision, and building deployable software.</p>
+          </div>
+
+          <h3 class="resume-title" data-i18n="resume.certifications">Certifications</h3>
+          <div class="resume-item">
+            <h4 data-i18n="resume.certCoursera">Coursera (completed)</h4>
+            <ul>
+              <li data-i18n="resume.cert.c1">Python for Everybody</li>
+              <li data-i18n="resume.cert.c2">Artificial Intelligence on Microsoft Azure</li>
+              <li data-i18n="resume.cert.c3">Machine Learning with Python</li>
+            </ul>
+            <p class="mb-0 mt-2"><strong data-i18n="resume.certInProgressLabel">In progress:</strong> <span data-i18n="resume.cert.c4">Microsoft Azure AI Fundamentals (AI-900)</span></p>
           </div>
         </div>
         
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="resume-title">Leadership & Project Experience</h3>
+          <h3 class="resume-title" data-i18n="resume.experience">Key projects</h3>
           
           <div class="resume-item">
-            <h4>Team Leader - Online Library Management System</h4>
-            <h5>2024</h5>
-            <p><em>Academic Group Project</em></p>
+            <h4 data-i18n="resume.exp1.title">Mắt Thần Nông (Divine Farmer's Eye) — AI scientific research project</h4>
+            <h5 data-i18n="resume.exp1.dates">Sep 2025 – Apr 2026</h5>
+            <p><em data-i18n="resume.exp1.role">Team Leader &amp; AI Developer (3-person team) — passed the product review round</em></p>
             <ul>
-              <li>Led a 4-member development team using Agile methodology</li>
-              <li>Coordinated project timeline, task delegation, and code review processes</li>
-              <li>Implemented full-stack solution with Java Spring Boot and MySQL</li>
-              <li>Achieved 100% on-time delivery with all functional requirements met</li>
+              <li data-i18n-html="resume.exp1.b1">Built on prior solo work (<em>AI Plant Disease Diagnosis</em>): expanded to coffee/durian field data, YOLOv8, and mobile-oriented packaging — same problem class, stronger research and deployment bar.</li>
+              <li data-i18n="resume.exp1.b2">Led labeling and experiment cadence as team lead; the product passed the review round.</li>
             </ul>
           </div>
           
           <div class="resume-item">
-            <h4>Solo Developer - AI Projects Portfolio</h4>
-            <h5>2023 - 2024</h5>
-            <p><em>Personal Development Projects</em></p>
+            <h4 data-i18n="resume.exp2.title">AutoLastWar ecosystem &amp; autobotlastwar.com</h4>
+            <h5 data-i18n="resume.exp2.dates">Oct 2025 – Apr 2026</h5>
+            <p><em data-i18n="resume.exp2.role">Core AI Developer &amp; Full-stack Engineer</em></p>
             <ul>
-              <li>Developed end-to-end ML applications from concept to deployment</li>
-              <li>Managed complete project lifecycle including data collection, model training, and web deployment</li>
-              <li>Implemented MLOps practices for model versioning and optimization</li>
+              <li data-i18n="resume.exp2.b1">Commercialized CV-heavy automation at scale: VIP product with ~200 active users — feedback loops mirror ML ops in the wild.</li>
+              <li data-i18n="resume.exp2.b2">Closed-loop perception stack (Python, OpenCV, MSS) — same class of reliability problems as serving models behind an app.</li>
+              <li data-i18n="resume.exp2.b3">Full-stack surface for the product (Next.js 14, FastAPI, PostgreSQL) with GitHub Actions CI/CD — pattern for AI-backed SaaS delivery.</li>
             </ul>
           </div>
-          
+
           <div class="resume-item">
-            <h4>Download My Full CV</h4>
-            <p>For a more detailed look at my experience, projects, and qualifications, please feel free to download my full curriculum vitae.</p>
-            <a href="/files/Nguyen_Viet_Anh_CV.pdf" download="Nguyen_Viet_Anh_CV.pdf" class="btn btn-primary"><i class="bi bi-download"></i> Download CV</a>
+            <h4 data-i18n="resume.exp3.title">SuiCircle — SUI × UEF Mini Hackathon &amp; SuiHub Discovery</h4>
+            <h5 data-i18n="resume.exp3.dates">Jan 2026</h5>
+            <p><em data-i18n="resume.exp3.role">Member — ideas &amp; engineering</em></p>
+            <ul>
+              <li data-i18n="resume.exp3.b1">Intensive build sprint on Sui — same constraints as hackathon ML/API delivery: scope, trade-offs, and demo-ready quality under a deadline.</li>
+              <li data-i18n="resume.exp3.b2">Skills transferable to AI engineering: rapid prototyping, integrating unfamiliar SDKs, and presenting a coherent technical story to judges.</li>
+            </ul>
+          </div>
+          <div class="resume-item">
+            <h4 data-i18n="resume.cv.title">Download My Full CV</h4>
+            <p data-i18n="resume.cv.desc">For a more detailed look at my experience, projects, and qualifications, please feel free to download my full curriculum vitae.</p>
+            <a href="/files/Nguyen_Viet_Anh_CV.pdf" download="Nguyen_Viet_Anh_CV.pdf" class="btn btn-primary"><i class="bi bi-download"></i> <span data-i18n="resume.cv.btn">Download CV</span></a>
           </div>
         </div>
       </div>
@@ -331,100 +522,146 @@
   <!-- Portfolio Section -->
   <section id="portfolio" class="portfolio section light-background">
     <div class="container section-title" data-aos="fade-up">
-      <h2>Project Case Studies</h2>
-      <p>This section highlights key projects and, more importantly, the AI-relevant skills and insights gained from each experience.</p>
+      <h2 data-i18n="portfolio.title">Project Case Studies</h2>
+      <p data-i18n="portfolio.desc">This section highlights key projects and, more importantly, the AI-relevant skills and insights gained from each experience.</p>
     </div>
     <div class="container">
-      <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+      <div class="row gy-4 align-items-stretch" data-aos="fade-up" data-aos-delay="200">
 
-        <!-- Case Study 1: Library System -->
-        <div class="col-lg-6">
-          <div class="portfolio-case-study">
-            <img src="https://placehold.co/600x400/eee/333?text=Library+System" class="img-fluid" alt="Library System Project">
-            <h4>Online Library Management System</h4>
-            <p class="role">Role: Team Leader, Backend & Frontend Developer</p>
-            <p>Developed a full-featured web platform to manage library resources, user accounts, and borrowing transactions. Led a 4-member team through the complete development lifecycle.</p>
+        <!-- Case Study: Divine Farmer's Eye -->
+        <div class="col-lg-6 col-md-6 d-flex">
+          <div class="portfolio-case-study featured-ai">
+            <img src="https://placehold.co/600x400/2c7a7b/ffffff?text=Divine+Farmer%27s+Eye" class="img-fluid" alt="Divine Farmer's Eye Project">
+            <span class="featured-badge"><i class="bi bi-stars"></i> <span data-i18n="portfolio.badge.aiLead">Featured AI Leadership Project</span></span>
+            <h4 data-i18n="portfolio.p1.title">Mắt Thần Nông (Divine Farmer's Eye) — AI Scientific Research Project</h4>
+            <p class="role" data-i18n="portfolio.p1.role">Role: Team Leader & AI Developer (team of 3) — product passed the review round</p>
+            <p data-i18n-html="portfolio.p1.desc">Evolved from my earlier solo web prototype (<em>AI Plant Disease Diagnosis</em>): this scientific research applies AI on mobile to diagnose diseases on industrial crops (coffee and durian) from real field imagery — with an improved pipeline (YOLOv8, team-scale data work, on-device inference). The product passed the review round.</p>
 
             <div class="takeaways">
-              <h5><i class="bi bi-lightbulb"></i> Key Takeaways</h5>
+              <h5><i class="bi bi-lightbulb"></i> <span data-i18n="portfolio.techHighlights">Technical Highlights</span></h5>
               <ul>
-                <li><strong>Leadership Skills:</strong> Successfully managed team coordination, task delegation, and sprint planning using Agile methodology</li>
-                <li><strong>Data Management:</strong> Gained experience in designing and managing a structured database, a core skill for handling datasets in AI projects</li>
-                <li><strong>Information Retrieval:</strong> Implementing search/filter functionalities provided a practical understanding of information retrieval, foundational for building recommendation systems</li>
+                <li data-i18n-html="portfolio.p1.b1"><strong>From prototype to research:</strong> The solo EfficientNet/TFLite app proved leaf-level plant CV end-to-end; this project upgrades scope — industrial crops, field datasets, and YOLOv8 for robust detection</li>
+                <li data-i18n-html="portfolio.p1.b2"><strong>Real-time AI deployment:</strong> Integrated the model into a mobile workflow for fast on-device inference and practical farm-level usage</li>
+                <li data-i18n-html="portfolio.p1.b3"><strong>Student AI leadership:</strong> Led a multi-member team while aligning AI research, data preparation, and product implementation into one usable solution</li>
               </ul>
             </div>
-
             <div class="github-link-btn text-center">
-              <a href="https://github.com/EthanNguyen1412/Online-Library-Management-System" class="btn btn-outline-primary" target="_blank"><i class="bi bi-github"></i> View on GitHub</a>
+              <a href="https://github.com/EthanNguyen1412/AI-Agriculture-Ecosystem" class="btn btn-outline-primary" target="_blank"><i class="bi bi-github"></i> <span data-i18n="portfolio.viewGithub">View on GitHub</span></a>
             </div>
           </div>
         </div>
 
-        <!-- Case Study 2: ChatLAN App -->
-        <div class="col-lg-6">
-          <div class="portfolio-case-study">
-            <img src="https://placehold.co/600x400/ddd/333?text=Chat+App" class="img-fluid" alt="ChatLAN App Project">
-            <h4>Corporate Internal ChatLAN App</h4>
-            <p class="role">Sole Developer (End-to-End)</p>
-            <p>Built a secure desktop application for internal communication over a local network, focusing on real-time performance and data security.</p>
+        <!-- Case Study: AutoLastWar -->
+        <div class="col-lg-6 col-md-6 d-flex">
+          <div class="portfolio-case-study featured-ai">
+            <img src="https://placehold.co/600x400/334155/ffffff?text=AutoLastWar" class="img-fluid" alt="AutoLastWar Project">
+            <span class="featured-badge"><i class="bi bi-stars"></i> <span data-i18n="portfolio.badge.aiEng">Featured AI Engineering Project</span></span>
+            <h4 data-i18n="portfolio.p2.title">AutoLastWar - Advanced Automation & Computer Vision Bot</h4>
+            <p class="role" data-i18n="portfolio.p2.role">Role: Core AI & Automation Developer — commercialized product</p>
+            <p data-i18n="portfolio.p2.desc">A commercialized desktop automation bot that uses real-time computer vision to analyze screen states and execute accurate response actions automatically for VIP users.</p>
 
             <div class="takeaways">
-              <h5><i class="bi bi-lightbulb"></i> Key Takeaways</h5>
+              <h5><i class="bi bi-lightbulb"></i> <span data-i18n="portfolio.techHighlights">Technical Highlights</span></h5>
               <ul>
-                <li><strong>Real-time Data Processing:</strong> Handling live message streams is analogous to processing data for dynamic AI models (e.g., live sentiment analysis)</li>
-                <li><strong>Data Security & Privacy:</strong> Reinforced the importance of data privacy and encryption, a critical ethical consideration in all AI systems</li>
-                <li><strong>System Architecture:</strong> Understood client-server architecture, which is fundamental for deploying and scaling distributed AI models</li>
+                <li data-i18n-html="portfolio.p2.b1"><strong>Performance optimization:</strong> Combined Python, OpenCV, MSS, and PyDirectInput to process visual signals and action loops with high efficiency</li>
+                <li data-i18n-html="portfolio.p2.b2"><strong>Computer vision automation:</strong> Designed screen-state detection and action constraints from observed gameplay behavior using OpenCV/MSS, keeping the bot fully screen-driven</li>
+                <li data-i18n-html="portfolio.p2.b3"><strong>Commercial product delivery:</strong> Packaged the bot as a VIP automation product with real users, maintenance needs, and production feedback loops</li>
               </ul>
             </div>
-
             <div class="github-link-btn text-center">
-              <a href="https://github.com/EthanNguyen1412/ChatLAN-App" class="btn btn-outline-primary" target="_blank"><i class="bi bi-github"></i> View on GitHub</a>
+              <a href="https://github.com/EthanNguyen1412/AutoLastWar.git" class="btn btn-outline-primary" target="_blank"><i class="bi bi-github"></i> <span data-i18n="portfolio.viewGithub">View on GitHub</span></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study: autobotlastwar.com -->
+        <div class="col-lg-6 col-md-6 d-flex">
+          <div class="portfolio-case-study">
+            <img src="https://placehold.co/600x400/0ea5e9/ffffff?text=autobotlastwar.com" class="img-fluid" alt="autobotlastwar.com Project">
+            <h4 data-i18n="portfolio.p3.title">E-commerce Platform: autobotlastwar.com</h4>
+            <p class="role" data-i18n="portfolio.p3.role">Role: Full-stack Developer & DevOps</p>
+            <p data-i18n="portfolio.p3.desc">A full-stack SaaS web platform for software commercialization, providing VIP service packages and an intuitive user management dashboard.</p>
+
+            <div class="takeaways">
+              <h5><i class="bi bi-lightbulb"></i> <span data-i18n="portfolio.techHighlights">Technical Highlights</span></h5>
+              <ul>
+                <li data-i18n-html="portfolio.p3.b1"><strong>Modern architecture:</strong> Designed a client-server system with Next.js 14, FastAPI, and PostgreSQL</li>
+                <li data-i18n-html="portfolio.p3.b2"><strong>CI/CD pipeline:</strong> Implemented automated deployment workflows using GitHub Actions to continuously deliver to VPS infrastructure</li>
+                <li data-i18n-html="portfolio.p3.b3"><strong>Production readiness:</strong> Completed end-to-end optimization from frontend SEO to backend security and database management</li>
+              </ul>
+            </div>
+            <div class="github-link-btn text-center">
+              <a href="https://autobotlastwar.com/" class="btn btn-outline-primary" target="_blank"><i class="bi bi-globe2"></i> <span data-i18n="portfolio.visitSite">Visit Website</span></a>
             </div>
           </div>
         </div>
 
         <!-- Case Study 3: AI Fake News Detector -->
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-md-6 d-flex">
           <div class="portfolio-case-study">
             <img src="https://placehold.co/600x400/ffc107/ffffff?text=Fake+News+Detector" class="img-fluid" alt="AI Fake News Detector Project">
-            <h4>AI Fake News Detector</h4>
-            <p class="role">Role: Sole Developer (End-to-End)</p>
-            <p>An interactive web application that classifies news articles as Real or Fake with 90% accuracy, featuring model explanations using LIME to build user trust and model transparency.</p>
+            <h4 data-i18n="portfolio.p4.title">AI Fake News Detector</h4>
+            <p class="role" data-i18n="portfolio.p4.role">Role: Sole Developer (End-to-End)</p>
+            <p data-i18n="portfolio.p4.desc">An interactive web application that classifies news articles as Real or Fake with 90% accuracy, featuring model explanations using LIME to build user trust and model transparency.</p>
             
             <div class="takeaways">
-              <h5><i class="bi bi-lightbulb"></i> Key Takeaways</h5>
+              <h5><i class="bi bi-lightbulb"></i> <span data-i18n="portfolio.techHighlights">Technical Highlights</span></h5>
               <ul>
-                <li><strong>Explainable AI (XAI) Implementation:</strong> Successfully integrated the LIME library to provide visual, human-interpretable explanations for model predictions</li>
-                <li><strong>Full-Stack Data Application:</strong> Built and deployed an end-to-end machine learning project using Streamlit for the interactive UI and Scikit-learn for classification</li>
-                <li><strong>Complete ML Pipeline:</strong> Managed the entire model lifecycle from training to deployment with proper model versioning and optimization</li>
+                <li data-i18n-html="portfolio.p4.b1"><strong>Explainable AI (XAI) Implementation:</strong> Successfully integrated the LIME library to provide visual, human-interpretable explanations for model predictions</li>
+                <li data-i18n-html="portfolio.p4.b2"><strong>Full-Stack Data Application:</strong> Built and deployed an end-to-end machine learning project using Streamlit for the interactive UI and Scikit-learn for classification</li>
+                <li data-i18n-html="portfolio.p4.b3"><strong>Complete ML Pipeline:</strong> Managed the entire model lifecycle from training to deployment with proper model versioning and optimization</li>
               </ul>
             </div>
 
             <div class="github-link-btn text-center">
-              <a href="https://github.com/EthanNguyen1412/fake-news-detector.git" class="btn btn-outline-primary" target="_blank"><i class="bi bi-github"></i> View on GitHub</a>
+              <a href="https://github.com/EthanNguyen1412/fake-news-detector.git" class="btn btn-outline-primary" target="_blank"><i class="bi bi-github"></i> <span data-i18n="portfolio.viewGithub">View on GitHub</span></a>
             </div>
           </div>
         </div>
 
         <!-- Case Study 4: AI Plant Disease Diagnosis -->
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-md-6 d-flex">
           <div class="portfolio-case-study">
             <img src="https://placehold.co/600x400/28a745/ffffff?text=AI+Plant+Diagnosis" class="img-fluid" alt="AI Plant Disease Diagnosis Project">
-            <h4>AI Plant Disease Diagnosis</h4>
-            <p class="role">Role: Sole Developer (End-to-End)</p>
-            <p>AI-powered web application that analyzes plant leaf images to identify potential diseases with 95% accuracy. Features a responsive frontend and optimized TensorFlow Lite backend.</p>
+            <h4 data-i18n="portfolio.p5.title">AI Plant Disease Diagnosis</h4>
+            <p class="role" data-i18n="portfolio.p5.role">Role: Sole Developer (End-to-End)</p>
+            <p data-i18n-html="portfolio.p5.desc">Solo web app that analyzes plant leaf images to spot diseases (~95% accuracy) with a responsive UI and TensorFlow Lite backend. Served as the <strong>proof-of-concept and technical baseline</strong> that later informed the idea, dataset strategy, and architecture upgrades for the <em>Mắt Thần Nông</em> AI scientific research project.</p>
 
             <div class="takeaways">
-              <h5><i class="bi bi-lightbulb"></i> Key Takeaways</h5>
+              <h5><i class="bi bi-lightbulb"></i> <span data-i18n="portfolio.techHighlights">Technical Highlights</span></h5>
               <ul>
-                <li><strong>Advanced Computer Vision:</strong> Implemented and fine-tuned a CNN (EfficientNetB3) using Transfer Learning and data augmentation techniques</li>
-                <li><strong>Full-Stack AI Deployment:</strong> Integrated TensorFlow Lite model into Flask backend with RESTful API and responsive HTML/CSS/JS frontend</li>
-                <li><strong>MLOps & Optimization:</strong> Gained hands-on experience converting Keras models to optimized TFLite format for production deployment</li>
+                <li data-i18n-html="portfolio.p5.b1"><strong>Advanced Computer Vision:</strong> Implemented and fine-tuned a CNN (EfficientNetB3) using Transfer Learning and data augmentation techniques</li>
+                <li data-i18n-html="portfolio.p5.b2"><strong>Full-Stack AI Deployment:</strong> Integrated TensorFlow Lite model into Flask backend with RESTful API and responsive HTML/CSS/JS frontend</li>
+                <li data-i18n-html="portfolio.p5.b3"><strong>Precursor to research:</strong> End-to-end leaf diagnosis validated the plant-CV track; lessons carried into the team research project (YOLOv8, field crops, mobile)</li>
               </ul>
             </div>
 
             <div class="github-link-btn text-center">
-              <a href="https://github.com/EthanNguyen1412/Plant_Disease_Diagnosis_AI.git" class="btn btn-outline-primary" target="_blank"><i class="bi bi-github"></i> View on GitHub</a>
+              <a href="https://github.com/EthanNguyen1412/Plant_Disease_Diagnosis_AI.git" class="btn btn-outline-primary" target="_blank"><i class="bi bi-github"></i> <span data-i18n="portfolio.viewGithub">View on GitHub</span></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 5: YouTube Auto AD Skipper -->
+        <div class="col-lg-6 col-md-6 d-flex">
+          <div class="portfolio-case-study">
+            <img src="https://placehold.co/600x400/dc2626/ffffff?text=YT+Skipper+MV3" class="img-fluid" alt="YouTube Auto AD Skipper Project">
+            <h4 data-i18n="portfolio.p6.title">YT_Skipper - YouTube Auto AD Skipper (Chrome Extension MV3)</h4>
+            <p class="role" data-i18n="portfolio.p6.role">Role: JavaScript Developer (Extension Architecture & Runtime Logic)</p>
+            <p data-i18n="portfolio.p6.desc">A production-oriented Chrome Extension that auto-detects and skips YouTube ads, including background tabs, to reduce repetitive manual actions for users.</p>
+
+            <div class="takeaways">
+              <h5><i class="bi bi-lightbulb"></i> <span data-i18n="portfolio.techHighlights">Technical Highlights</span></h5>
+              <ul>
+                <li data-i18n-html="portfolio.p6.b1"><strong>MV3 architecture design:</strong> Structured the extension into a background service worker, content script, and DOM utilities module for clear separation of concerns.</li>
+                <li data-i18n-html="portfolio.p6.b2"><strong>Multi-layer skip strategy:</strong> Implemented robust ad-skip execution flow with DOM click, content-world fallback, and debugger/CDP fallback for stricter player states.</li>
+                <li data-i18n-html="portfolio.p6.b3"><strong>Background reliability:</strong> Used alarms heartbeat, tab monitoring, polling, and MutationObserver to maintain stable behavior even when YouTube runs in inactive tabs.</li>
+                <li data-i18n-html="portfolio.p6.b4"><strong>Practical engineering trade-offs:</strong> Documented limitations around YouTube UI changes, non-skippable ads, and debugger-policy constraints across environments.</li>
+              </ul>
+            </div>
+
+            <div class="github-link-btn text-center">
+              <a href="https://github.com/EthanNguyen1412/YouTube_Auto_AD_Skipper" class="btn btn-outline-primary" target="_blank"><i class="bi bi-github"></i> <span data-i18n="portfolio.viewGithub">View on GitHub</span></a>
             </div>
           </div>
         </div>
@@ -435,56 +672,58 @@
   <!-- Contact Section -->
   <section id="contact" class="contact section">
     <div class="container section-title" data-aos="fade-up">
-      <h2>Contact</h2>
+      <h2 data-i18n="contact.title">Contact</h2>
     </div>
     <div class="container" data-aos="fade-up" data-aos-delay="100">
       <div class="row gy-4">
         <div class="col-lg-5">
-          <div class="info-wrap">
+          <div class="info-wrap contact-card">
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
-                <h3>Address</h3>
-                <p>District 7, Ho Chi Minh City, Vietnam</p>
+                <h3 data-i18n="contact.address">Address</h3>
+                <p data-i18n="contact.addressValue">District 7, Ho Chi Minh City, Vietnam</p>
               </div>
             </div>
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
               <i class="bi bi-telephone flex-shrink-0"></i>
               <div>
-                <h3>Call Me</h3>
+                <h3 data-i18n="contact.call">Call Me</h3>
                 <p>+84 812 553 774</p>
               </div>
             </div>
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
-                <h3>Email Me</h3>
+                <h3 data-i18n="contact.email">Email Me</h3>
                 <p>ngvietanh.it@gmail.com</p>
               </div>
             </div>
           </div>
         </div>
         <div class="col-lg-7">
-          <form th:action="@{/send-message}" method="post" data-aos="fade-up" data-aos-delay="200">
+          <form th:action="@{/send-message}" method="post" data-aos="fade-up" data-aos-delay="200" class="contact-form-card">
             <div class="row gy-4">
               <div class="col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" data-i18n-placeholder="contact.name" required="">
               </div>
               <div class="col-md-6 ">
-                <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                <input type="email" class="form-control" name="email" placeholder="Your Email" data-i18n-placeholder="contact.emailPh" required="">
               </div>
               <div class="col-md-12">
-                <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                <input type="text" class="form-control" name="subject" placeholder="Subject" data-i18n-placeholder="contact.subject" required="">
               </div>
               <div class="col-md-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                <textarea class="form-control" name="message" rows="6" placeholder="Message" data-i18n-placeholder="contact.message" required=""></textarea>
               </div>
               <div class="col-md-12 text-center">
                 <div th:if="${messageStatus}" class="my-3">
-                  <div th:class="${messageStatus == 'SUCCESS' ? 'sent-message' : 'error-message'}" th:text="${messageStatus == 'SUCCESS' ? 'Your message has been sent. Thank you!' : 'Failed to send message. Please try again.'}">
+                  <div th:class="${messageStatus == 'SUCCESS' ? 'sent-message' : 'error-message'}"
+                       th:attr="data-status=${messageStatus},data-i18n=${messageStatus == 'SUCCESS' ? 'contact.sent' : 'contact.failed'}"
+                       th:text="${messageStatus == 'SUCCESS' ? 'Your message has been sent. Thank you!' : 'Failed to send message. Please try again.'}">
                   </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
+                <button type="submit" class="btn btn-primary" data-i18n="contact.send">Send Message</button>
               </div>
             </div>
           </form>
@@ -498,10 +737,10 @@
 <footer id="footer" class="footer dark-background">
   <div class="container">
     <div class="copyright text-center ">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Viet Anh Nguyen</strong> <span>All Rights Reserved</span></p>
+      <p>© <span data-i18n="footer.copyright">Copyright</span> <strong class="px-1 sitename">Viet Anh Nguyen</strong> <span data-i18n="footer.rights">All Rights Reserved</span></p>
     </div>
     <div class="credits">
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      <span data-i18n="footer.designedBy">Designed by</span> <a href="https://bootstrapmade.com/">BootstrapMade</a>
     </div>
   </div>
 </footer>
@@ -516,6 +755,29 @@
 <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/vendor/aos/aos.js"></script>
 <script src="/assets/vendor/typed.js/typed.umd.js"></script>
+<script>
+  (function () {
+    if (typeof window.Typed !== "function") return;
+    const Original = window.Typed;
+    function Wrapper(selector, options) {
+      const instance = Reflect.construct(Original, [selector, options]);
+      const isTargeted = typeof selector === "string"
+        ? selector === ".typed"
+        : (selector && selector.classList && selector.classList.contains("typed"));
+      if (isTargeted) {
+        if (window.__typedInstance && window.__typedInstance !== instance &&
+            typeof window.__typedInstance.destroy === "function") {
+          try { window.__typedInstance.destroy(); } catch (e) {}
+        }
+        window.__typedInstance = instance;
+      }
+      return instance;
+    }
+    Wrapper.prototype = Original.prototype;
+    Object.assign(Wrapper, Original);
+    window.Typed = Wrapper;
+  })();
+</script>
 <script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
 <script src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
 <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -525,6 +787,412 @@
 
 <!-- Main JS File -->
 <script src="/assets/js/main.js"></script>
+
+<!-- i18n: Language Switcher Logic -->
+<script>
+(function () {
+  const translations = {
+    en: {
+      "page.title": "Portfolio | Viet Anh Nguyen",
+
+      "nav.home": "Home",
+      "nav.about": "About",
+      "nav.skills": "Skills",
+      "nav.resume": "Resume",
+      "nav.portfolio": "Portfolio",
+      "nav.contact": "Contact",
+
+      "hero.intro": "I'm an",
+      "hero.typed": "AI Engineer, Full-stack Developer, Automation Developer, Team Leader",
+
+      "about.title": "About Me",
+      "about.desc": "Third-year Information Technology student majoring in Artificial Intelligence at the University of Economics and Finance, Ho Chi Minh City (UEF). Hands-on experience developing AI systems, software automation, and full-stack web products. Focused on growing as an AI Engineer.",
+      "about.heading": "AI & Full-stack Developer — aspiring AI Engineer.",
+      "about.intro": "I take projects from model and automation logic through to deployed products: computer vision on real field data, desktop automation pipelines, and production web stacks with CI/CD.",
+      "about.phone": "Phone:",
+      "about.city": "City:",
+      "about.cityValue": "District 7, HCMC, Vietnam",
+      "about.degree": "Degree:",
+      "about.degreeValue": "Undergraduate",
+      "about.email": "Email:",
+      "about.outro": "I keep building on Coursera and Microsoft certifications, hackathons (e.g. SUI × UEF), and production work with real users so skills stay aligned with industry practice.",
+
+      "skills.title": "Technical Skills & Expertise",
+      "skills.desc": "Each item below states how I applied the skill in a real project or product — not a generic stack list.",
+      "skills.ai.title": "AI / Machine Learning",
+      "skills.ai.1": "<strong>Deep learning & neural networks:</strong> <em>Plant Disease Diagnosis</em> — EfficientNetB3 + TFLite end-to-end (solo precursor); <em>Mắt Thần Nông</em> — extended to field crops and team research with stronger evaluation.",
+      "skills.ai.2": "<strong>Classical ML & explainability:</strong> <em>Fake News Detector</em> — Scikit-learn text classification end-to-end with LIME for interpretable predictions.",
+      "skills.ai.3": "<strong>Computer vision (YOLOv8, OpenCV):</strong> <em>Mắt Thần Nông</em> — detection on real field data; <em>AutoLastWar</em> — frame-accurate screen state for closed-loop automation.",
+      "skills.web.title": "Web (Full-stack)",
+      "skills.web.1": "<strong>Next.js 14:</strong> <em>autobotlastwar.com</em> — App Router, checkout and dashboard UX for a live SaaS tied to the automation product.",
+      "skills.web.2": "<strong>FastAPI:</strong> Same product — auth, subscriptions, and operational APIs co-developed with the bot ecosystem.",
+      "skills.web.3": "<strong>PostgreSQL:</strong> Users, billing, and ops tables designed for production traffic from ~200 MAU-class usage.",
+      "skills.auto.title": "Automation & reverse engineering",
+      "skills.auto.1": "<strong>Python:</strong> <em>AutoLastWar</em> — orchestrates capture → inference → action; shared tooling with ML notebooks and FastAPI services.",
+      "skills.auto.2": "<strong>MSS + OpenCV:</strong> <em>AutoLastWar</em> — low-latency capture and template/state detection feeding the bot decision loop.",
+      "skills.auto.3": "<strong>PyDirectInput:</strong> <em>AutoLastWar</em> — input automation synchronized with vision feedback for stable real-world runs.",
+      "skills.tools.title": "DevOps & tooling",
+      "skills.tools.1": "<strong>CI/CD:</strong> <em>autobotlastwar.com</em> — GitHub Actions pipelines to build and deploy the FastAPI + Next.js stack to VPS.",
+      "skills.tools.2": "<strong>IDE & AI-assisted dev:</strong> Daily delivery with WebStorm + Cursor across <em>AutoLastWar</em>, web services, and ML repos.",
+      "skills.tools.3": "<strong>Google AI Studio:</strong> Rapid model and prompt experiments supporting YOLO / CV research workflows for <em>Mắt Thần Nông</em>.",
+      "skills.tools.4": "<strong>Git/GitHub:</strong> Branching and releases for solo products and team research (<em>Mắt Thần Nông</em>, coursework).",
+      "skills.prompt.title": "Prompt Engineering — Core Techniques",
+      "skills.prompt.1": "<strong>Chain-of-Thought (CoT):</strong> Used to decompose OpenCV and automation bugs in <em>AutoLastWar</em> and full-stack issues on <em>autobotlastwar.com</em> before coding.",
+      "skills.prompt.2": "<strong>Few-shot & zero-shot:</strong> Shortened iteration on <em>Mắt Thần Nông</em> YOLO experiments and <em>Fake News Detector</em> modeling notes via Cursor / AI Studio.",
+      "skills.prompt.3": "<strong>System instructions & personas:</strong> Stable agent behavior when generating CV helpers and API glue code — same toolchain as production work (Cursor, Google AI Studio).",
+      "skills.aidev.title": "AI-Driven Development & LLM Ecosystem",
+      "skills.aidev.1": "<strong>Agent workflow:</strong> Repeatable edit → test → fix loops with Cursor on <em>AutoLastWar</em> vision modules and <em>autobotlastwar.com</em> backend.",
+      "skills.aidev.2": "<strong>Context packaging:</strong> Structured Markdown/JSON briefs so LLMs align with repo layout — critical for <em>AutoLastWar</em> reverse-engineering notes and API code.",
+      "skills.aidev.3": "<strong>Error-driven refinement:</strong> Tight feedback loop from terminal and logs when shipping FastAPI + automation code to production.",
+      "skills.aidev.4": "<strong>LLM stack:</strong> Gemini, GPT-4o, Claude via Cursor and Google AI Studio — same tools used across research and product codepaths.",
+      "skills.aidev.5": "<strong>Measured impact:</strong> Accelerated OpenCV components for <em>AutoLastWar</em>; cut YOLOv8 iteration time on <em>Mắt Thần Nông</em> from weeks to days.",
+
+      "resume.title": "Resume",
+      "resume.summary": "Summary",
+      "resume.summaryDesc": "Targeting AI Engineer roles: end-to-end ML/CV (train → evaluate → integrate), plus APIs and automation at scale. Third-year AI major at UEF — led a crop-disease AI product past the product review round and commercialized a vision-driven automation product with ~200 active users.",
+      "resume.address": "District 7, Ho Chi Minh City, Vietnam",
+      "resume.education": "Education",
+      "resume.degree": "Bachelor of Information Technology",
+      "resume.eduDates": "2022 - Present",
+      "resume.eduSchool": "University of Economics and Finance (UEF), HCMC",
+      "resume.eduDesc": "Third-year undergraduate in Information Technology, majoring in Artificial Intelligence. Coursework and projects emphasize machine learning, deep learning, computer vision, and building deployable software.",
+      "resume.certifications": "Certifications",
+      "resume.certCoursera": "Coursera (completed)",
+      "resume.cert.c1": "Python for Everybody",
+      "resume.cert.c2": "Artificial Intelligence on Microsoft Azure",
+      "resume.cert.c3": "Machine Learning with Python",
+      "resume.certInProgressLabel": "In progress",
+      "resume.cert.c4": "Microsoft Azure AI Fundamentals (AI-900)",
+      "resume.experience": "Key projects",
+      "resume.exp1.title": "Mắt Thần Nông (Divine Farmer's Eye) — AI scientific research project",
+      "resume.exp1.dates": "Sep 2025 – Apr 2026",
+      "resume.exp1.role": "Team Leader & AI Developer (3-person team) — passed the product review round",
+      "resume.exp1.b1": "Built on prior solo work (<em>AI Plant Disease Diagnosis</em>): expanded to coffee/durian field data, YOLOv8, and mobile-oriented packaging — same problem class, stronger research and deployment bar.",
+      "resume.exp1.b2": "Led labeling and experiment cadence as team lead; the product passed the review round.",
+      "resume.exp2.title": "AutoLastWar ecosystem & autobotlastwar.com",
+      "resume.exp2.dates": "Oct 2025 – Apr 2026",
+      "resume.exp2.role": "Core AI Developer & Full-stack Engineer",
+      "resume.exp2.b1": "Commercialized CV-heavy automation at scale: VIP product with ~200 active users — feedback loops mirror ML ops in the wild.",
+      "resume.exp2.b2": "Closed-loop perception stack (Python, OpenCV, MSS) — same class of reliability problems as serving models behind an app.",
+      "resume.exp2.b3": "Full-stack surface for the product (Next.js 14, FastAPI, PostgreSQL) with GitHub Actions CI/CD — pattern for AI-backed SaaS delivery.",
+      "resume.exp3.title": "SuiCircle — SUI × UEF Mini Hackathon & SuiHub Discovery",
+      "resume.exp3.dates": "Jan 2026",
+      "resume.exp3.role": "Member — ideas & engineering",
+      "resume.exp3.b1": "Intensive build sprint on Sui — same constraints as hackathon ML/API delivery: scope, trade-offs, and demo-ready quality under a deadline.",
+      "resume.exp3.b2": "Skills transferable to AI engineering: rapid prototyping, integrating unfamiliar SDKs, and presenting a coherent technical story to judges.",
+      "resume.cv.title": "Download My Full CV",
+      "resume.cv.desc": "For a more detailed look at my experience, projects, and qualifications, please feel free to download my full curriculum vitae.",
+      "resume.cv.btn": "Download CV",
+
+      "portfolio.title": "Project Case Studies",
+      "portfolio.desc": "This section highlights key projects and, more importantly, the AI-relevant skills and insights gained from each experience.",
+      "portfolio.badge.aiLead": "Featured AI Leadership Project",
+      "portfolio.badge.aiEng": "Featured AI Engineering Project",
+      "portfolio.techHighlights": "Technical Highlights",
+      "portfolio.viewGithub": "View on GitHub",
+      "portfolio.visitSite": "Visit Website",
+
+      "portfolio.p1.title": "Mắt Thần Nông (Divine Farmer's Eye) — AI Scientific Research Project",
+      "portfolio.p1.role": "Role: Team Leader & AI Developer (team of 3) — product passed the review round",
+      "portfolio.p1.desc": "Evolved from my earlier solo web prototype (<em>AI Plant Disease Diagnosis</em>): this scientific research applies AI on mobile to diagnose diseases on industrial crops (coffee and durian) from real field imagery — with an improved pipeline (YOLOv8, team-scale data work, on-device inference). The product passed the review round.",
+      "portfolio.p1.b1": "<strong>From prototype to research:</strong> The solo EfficientNet/TFLite app proved leaf-level plant CV end-to-end; this project upgrades scope — industrial crops, field datasets, and YOLOv8 for robust detection",
+      "portfolio.p1.b2": "<strong>Real-time AI deployment:</strong> Integrated the model into a mobile workflow for fast on-device inference and practical farm-level usage",
+      "portfolio.p1.b3": "<strong>Student AI leadership:</strong> Led a multi-member team while aligning AI research, data preparation, and product implementation into one usable solution",
+
+      "portfolio.p2.title": "AutoLastWar - Advanced Automation & Computer Vision Bot",
+      "portfolio.p2.role": "Role: Core AI & Automation Developer — commercialized product",
+      "portfolio.p2.desc": "A commercialized desktop automation bot that uses real-time computer vision to analyze screen states and execute accurate response actions automatically for VIP users.",
+      "portfolio.p2.b1": "<strong>Performance optimization:</strong> Combined Python, OpenCV, MSS, and PyDirectInput to process visual signals and action loops with high efficiency",
+      "portfolio.p2.b2": "<strong>Computer vision automation:</strong> Designed screen-state detection and action constraints from observed gameplay behavior using OpenCV/MSS, keeping the bot fully screen-driven",
+      "portfolio.p2.b3": "<strong>Commercial product delivery:</strong> Packaged the bot as a VIP automation product with real users, maintenance needs, and production feedback loops",
+
+      "portfolio.p3.title": "E-commerce Platform: autobotlastwar.com",
+      "portfolio.p3.role": "Role: Full-stack Developer & DevOps",
+      "portfolio.p3.desc": "A full-stack SaaS web platform for software commercialization, providing VIP service packages and an intuitive user management dashboard.",
+      "portfolio.p3.b1": "<strong>Modern architecture:</strong> Designed a client-server system with Next.js 14, FastAPI, and PostgreSQL",
+      "portfolio.p3.b2": "<strong>CI/CD pipeline:</strong> Implemented automated deployment workflows using GitHub Actions to continuously deliver to VPS infrastructure",
+      "portfolio.p3.b3": "<strong>Production readiness:</strong> Completed end-to-end optimization from frontend SEO to backend security and database management",
+
+      "portfolio.p4.title": "AI Fake News Detector",
+      "portfolio.p4.role": "Role: Sole Developer (End-to-End)",
+      "portfolio.p4.desc": "An interactive web application that classifies news articles as Real or Fake with 90% accuracy, featuring model explanations using LIME to build user trust and model transparency.",
+      "portfolio.p4.b1": "<strong>Explainable AI (XAI) Implementation:</strong> Successfully integrated the LIME library to provide visual, human-interpretable explanations for model predictions",
+      "portfolio.p4.b2": "<strong>Full-Stack Data Application:</strong> Built and deployed an end-to-end machine learning project using Streamlit for the interactive UI and Scikit-learn for classification",
+      "portfolio.p4.b3": "<strong>Complete ML Pipeline:</strong> Managed the entire model lifecycle from training to deployment with proper model versioning and optimization",
+
+      "portfolio.p5.title": "AI Plant Disease Diagnosis",
+      "portfolio.p5.role": "Role: Sole Developer (End-to-End)",
+      "portfolio.p5.desc": "Solo web app that analyzes plant leaf images to spot diseases (~95% accuracy) with a responsive UI and TensorFlow Lite backend. Served as the <strong>proof-of-concept and technical baseline</strong> that later informed the idea, dataset strategy, and architecture upgrades for the <em>Mắt Thần Nông</em> AI scientific research project.",
+      "portfolio.p5.b1": "<strong>Advanced Computer Vision:</strong> Implemented and fine-tuned a CNN (EfficientNetB3) using Transfer Learning and data augmentation techniques",
+      "portfolio.p5.b2": "<strong>Full-Stack AI Deployment:</strong> Integrated TensorFlow Lite model into Flask backend with RESTful API and responsive HTML/CSS/JS frontend",
+      "portfolio.p5.b3": "<strong>Precursor to research:</strong> End-to-end leaf diagnosis validated the plant-CV track; lessons carried into the team research project (YOLOv8, field crops, mobile)",
+
+      "portfolio.p6.title": "YT_Skipper - YouTube Auto AD Skipper (Chrome Extension MV3)",
+      "portfolio.p6.role": "Role: JavaScript Developer (Extension Architecture & Runtime Logic)",
+      "portfolio.p6.desc": "A production-oriented Chrome Extension that auto-detects and skips YouTube ads, including background tabs, to reduce repetitive manual actions for users.",
+      "portfolio.p6.b1": "<strong>MV3 architecture design:</strong> Structured the extension into a background service worker, content script, and DOM utilities module for clear separation of concerns.",
+      "portfolio.p6.b2": "<strong>Multi-layer skip strategy:</strong> Implemented robust ad-skip execution flow with DOM click, content-world fallback, and debugger/CDP fallback for stricter player states.",
+      "portfolio.p6.b3": "<strong>Background reliability:</strong> Used alarms heartbeat, tab monitoring, polling, and MutationObserver to maintain stable behavior even when YouTube runs in inactive tabs.",
+      "portfolio.p6.b4": "<strong>Practical engineering trade-offs:</strong> Documented limitations around YouTube UI changes, non-skippable ads, and debugger-policy constraints across environments.",
+
+      "contact.title": "Contact",
+      "contact.address": "Address",
+      "contact.addressValue": "District 7, Ho Chi Minh City, Vietnam",
+      "contact.call": "Call Me",
+      "contact.email": "Email Me",
+      "contact.name": "Your Name",
+      "contact.emailPh": "Your Email",
+      "contact.subject": "Subject",
+      "contact.message": "Message",
+      "contact.send": "Send Message",
+      "contact.sent": "Your message has been sent. Thank you!",
+      "contact.failed": "Failed to send message. Please try again.",
+
+      "footer.copyright": "Copyright",
+      "footer.rights": "All Rights Reserved",
+      "footer.designedBy": "Designed by"
+    },
+
+    vi: {
+      "page.title": "Hồ Sơ Cá Nhân | Nguyễn Việt Anh",
+
+      "nav.home": "Trang chủ",
+      "nav.about": "Giới thiệu",
+      "nav.skills": "Kỹ năng",
+      "nav.resume": "Hồ sơ",
+      "nav.portfolio": "Dự án",
+      "nav.contact": "Liên hệ",
+
+      "hero.intro": "Tôi là",
+      "hero.typed": "Kỹ sư AI, Lập trình viên Full-stack, Lập trình viên Tự động hóa, Trưởng nhóm",
+
+      "about.title": "Giới Thiệu Về Tôi",
+      "about.desc": "Nguyễn Việt Anh, sinh viên năm 3 chuyên ngành Trí tuệ Nhân tạo tại Trường Đại học Kinh tế - Tài chính TP.HCM (UEF). Có kinh nghiệm thực chiến trong phát triển AI, tự động hóa phần mềm (Automation) và lập trình Full-stack. Định hướng phát triển chuyên sâu trong vai trò AI Engineer.",
+      "about.heading": "Phát triển AI & Full-stack — hướng tới AI Engineer.",
+      "about.intro": "Tôi đưa dự án từ logic mô hình và tự động hóa đến sản phẩm triển khai thực tế: thị giác máy tính trên dữ liệu đồng ruộng, pipeline tự động hóa desktop, và web production có CI/CD.",
+      "about.phone": "Điện thoại:",
+      "about.city": "Thành phố:",
+      "about.cityValue": "Quận 7, TP. Hồ Chí Minh, Việt Nam",
+      "about.degree": "Trình độ:",
+      "about.degreeValue": "Đại học",
+      "about.email": "Email:",
+      "about.outro": "Tôi tiếp tục củng cố qua chứng chỉ Coursera và Microsoft, hackathon (ví dụ SUI × UEF), và sản phẩm thực tế có người dùng để kỹ năng bám sát thực hành ngành.",
+
+      "skills.title": "Kỹ Năng & Chuyên Môn",
+      "skills.desc": "Mỗi dòng dưới đây ghi rõ tôi đã áp dụng kỹ năng đó trong dự án hay sản phẩm nào — không chỉ liệt kê công nghệ.",
+      "skills.ai.title": "AI / Machine Learning",
+      "skills.ai.1": "<strong>Deep learning & mạng nơ-ron:</strong> <em>Plant Disease Diagnosis</em> — EfficientNetB3 + TFLite end-to-end (tiền đề cá nhân); <em>Mắt Thần Nông</em> — mở rộng sang cây trồng thực địa và nghiên cứu nhóm với đánh giá chặt hơn.",
+      "skills.ai.2": "<strong>ML cổ điển & giải thích mô hình:</strong> <em>Fake News Detector</em> — phân loại văn bản Scikit-learn kèm LIME để người dùng hiểu vì sao mô hình dự đoán như vậy.",
+      "skills.ai.3": "<strong>Computer vision (YOLOv8, OpenCV):</strong> <em>Mắt Thần Nông</em> — phát hiện trên dữ liệu đồng ruộng; <em>AutoLastWar</em> — nhận trạng thái màn hình chính xác theo khung hình cho vòng tự động hóa kín.",
+      "skills.web.title": "Web (Full-stack)",
+      "skills.web.1": "<strong>Next.js 14:</strong> <em>autobotlastwar.com</em> — App Router, luồng thanh toán và dashboard cho SaaS đang chạy, gắn với sản phẩm bot.",
+      "skills.web.2": "<strong>FastAPI:</strong> Cùng hệ sản phẩm — API xác thực, gói dịch vụ và vận hành phát triển song song với hệ bot.",
+      "skills.web.3": "<strong>PostgreSQL:</strong> Thiết kế bảng người dùng, thanh toán và vận hành cho lưu lượng gần ~200 người dùng hoạt động.",
+      "skills.auto.title": "Tự động hóa & reverse engineering",
+      "skills.auto.1": "<strong>Python:</strong> <em>AutoLastWar</em> — điều phối chụp → suy luận → hành động; dùng chung tooling với notebook ML và dịch vụ FastAPI.",
+      "skills.auto.2": "<strong>MSS + OpenCV:</strong> <em>AutoLastWar</em> — chụp độ trễ thấp và nhận template/trạng thái để đưa vào vòng quyết định của bot.",
+      "skills.auto.3": "<strong>PyDirectInput:</strong> <em>AutoLastWar</em> — tự động hóa input đồng bộ phản hồi thị giác để chạy ổn định ngoài thực tế.",
+      "skills.tools.title": "DevOps & công cụ",
+      "skills.tools.1": "<strong>CI/CD:</strong> <em>autobotlastwar.com</em> — GitHub Actions build và triển khai stack FastAPI + Next.js lên VPS.",
+      "skills.tools.2": "<strong>IDE & lập trình hỗ trợ AI:</strong> Giao hàng hằng ngày với WebStorm + Cursor trên <em>AutoLastWar</em>, web service và repo ML.",
+      "skills.tools.3": "<strong>Google AI Studio:</strong> Thử nghiệm mô hình và prompt nhanh, hỗ trợ quy trình nghiên cứu YOLO/CV cho <em>Mắt Thần Nông</em>.",
+      "skills.tools.4": "<strong>Git/GitHub:</strong> Nhánh và phát hành cho sản phẩm cá nhân và nghiên cứu nhóm (<em>Mắt Thần Nông</em>, đồ án môn học).",
+      "skills.prompt.title": "Prompt Engineering — Kỹ thuật cốt lõi",
+      "skills.prompt.1": "<strong>Chain-of-Thought (CoT):</strong> Dùng để bóc tách lỗi OpenCV/tự động hóa trong <em>AutoLastWar</em> và lỗi full-stack trên <em>autobotlastwar.com</em> trước khi code.",
+      "skills.prompt.2": "<strong>Few-shot & zero-shot:</strong> Rút ngắn vòng thử nghiệm YOLO ở <em>Mắt Thần Nông</em> và ghi chú mô hình <em>Fake News Detector</em> qua Cursor / AI Studio.",
+      "skills.prompt.3": "<strong>System prompt & persona:</strong> Giữ hành vi agent ổn định khi sinh mã hỗ trợ CV và lớp API — cùng chuỗi công cụ với môi trường production (Cursor, Google AI Studio).",
+      "skills.aidev.title": "Phát triển phần mềm với AI & Hệ sinh thái LLM",
+      "skills.aidev.1": "<strong>Quy trình agent:</strong> Vòng sửa → test → sửa lỗi lặp lại với Cursor trên module thị giác <em>AutoLastWar</em> và backend <em>autobotlastwar.com</em>.",
+      "skills.aidev.2": "<strong>Đóng gói ngữ cảnh:</strong> Brief Markdown/JSON có cấu trúc để LLM bám layout repo — quan trọng với ghi chú reverse engineering <em>AutoLastWar</em> và mã API.",
+      "skills.aidev.3": "<strong>Tinh chỉnh theo lỗi runtime:</strong> Phản hồi chặt từ terminal và log khi đưa FastAPI + automation lên production.",
+      "skills.aidev.4": "<strong>Stack LLM:</strong> Gemini, GPT-4o, Claude qua Cursor và Google AI Studio — thống nhất giữa nhánh nghiên cứu và nhánh sản phẩm.",
+      "skills.aidev.5": "<strong>Tác động đo được:</strong> Rút thời gian làm module OpenCV cho <em>AutoLastWar</em>; rút vòng lặp YOLOv8 ở <em>Mắt Thần Nông</em> từ tuần xuống ngày.",
+
+      "resume.title": "Hồ Sơ",
+      "resume.summary": "Tóm Tắt",
+      "resume.summaryDesc": "Hướng tới vị trí AI Engineer: ML/CV end-to-end (huấn luyện → đánh giá → tích hợp), kèm API và tự động hóa quy mô thực tế. Sinh viên năm 3 chuyên ngành AI tại UEF — dẫn sản phẩm AI nhận diện bệnh cây qua vòng duyệt sản phẩm và thương mại hóa sản phẩm tự động hóa dựa thị giác với gần 200 người dùng hoạt động.",
+      "resume.address": "Quận 7, TP. Hồ Chí Minh, Việt Nam",
+      "resume.education": "Học vấn",
+      "resume.degree": "Cử nhân Công nghệ Thông tin",
+      "resume.eduDates": "2022 - Hiện tại",
+      "resume.eduSchool": "Trường Đại học Kinh tế - Tài chính (UEF), TP.HCM",
+      "resume.eduDesc": "Sinh viên năm 3 ngành Công nghệ Thông tin, chuyên ngành Trí tuệ Nhân tạo. Chương trình và dự án tập trung học máy, học sâu, computer vision và xây dựng phần mềm có thể triển khai.",
+      "resume.certifications": "Chứng chỉ chuyên môn",
+      "resume.certCoursera": "Coursera (đã hoàn thành)",
+      "resume.cert.c1": "Python for Everybody",
+      "resume.cert.c2": "Artificial Intelligence on Microsoft Azure",
+      "resume.cert.c3": "Machine Learning with Python",
+      "resume.certInProgressLabel": "Đang hoàn thiện",
+      "resume.cert.c4": "Microsoft Azure AI Fundamentals (AI-900)",
+      "resume.experience": "Dự án nổi bật",
+      "resume.exp1.title": "Mắt Thần Nông (Divine Farmer's Eye) — Dự án Nghiên cứu Khoa học AI",
+      "resume.exp1.dates": "Tháng 9/2025 - Tháng 4/2026",
+      "resume.exp1.role": "Team Leader & AI Developer (nhóm 3 người) — đã qua vòng duyệt sản phẩm",
+      "resume.exp1.b1": "Xây trên dự án cá nhân trước (<em>AI Plant Disease Diagnosis</em>): mở rộng sang dữ liệu đồng ruộng cà phê/sầu riêng, YOLOv8 và đóng gói hướng mobile — cùng bài toán, tiêu chuẩn nghiên cứu và triển khai cao hơn.",
+      "resume.exp1.b2": "Là team lead điều phối gán nhãn và chu kỳ thí nghiệm; sản phẩm đã qua vòng duyệt sản phẩm.",
+      "resume.exp2.title": "Hệ sinh thái AutoLastWar & nền tảng autobotlastwar.com",
+      "resume.exp2.dates": "Tháng 10/2025 - Tháng 4/2026",
+      "resume.exp2.role": "Core AI Developer & Full-stack Engineer",
+      "resume.exp2.b1": "Thương mại hóa automation nặng CV ở quy mô thực tế: gói VIP, gần 200 người dùng hoạt động — vòng phản hồi gần với vận hành ML thực tế.",
+      "resume.exp2.b2": "Stack cảm nhận kín (Python, OpenCV, MSS) — cùng lớp bài toán tin cậy khi triển khai model sau một ứng dụng.",
+      "resume.exp2.b3": "Lớp full-stack cho sản phẩm (Next.js 14, FastAPI, PostgreSQL) và CI/CD GitHub Actions — mô hình giao hàng SaaS có thể gắn AI phía sau.",
+      "resume.exp3.title": "SuiCircle — SUI x UEF Mini Hackathon & SuiHub Discovery",
+      "resume.exp3.dates": "Tháng 1/2026",
+      "resume.exp3.role": "Thành viên phát triển ý tưởng & kỹ thuật",
+      "resume.exp3.b1": "Sprint triển khai trên Sui — cùng áp lực với hackathon ML/API: giới hạn phạm vi, đánh đổi kỹ thuật và chất lượng demo trong deadline.",
+      "resume.exp3.b2": "Kỹ năng chuyển sang AI Engineer: prototype nhanh, tích hợp SDK lạ, trình bày câu chuyện kỹ thuật mạch lạc cho ban giám khảo.",
+      "resume.cv.title": "Tải Xuống CV Đầy Đủ",
+      "resume.cv.desc": "Để xem chi tiết hơn về kinh nghiệm, dự án và năng lực chuyên môn của tôi, vui lòng tải xuống bản CV đầy đủ bên dưới.",
+      "resume.cv.btn": "Tải CV",
+
+      "portfolio.title": "Các Dự Án Tiêu Biểu",
+      "portfolio.desc": "Mục này tổng hợp các dự án quan trọng và quan trọng hơn là những kỹ năng, bài học liên quan đến AI thu được từ mỗi trải nghiệm.",
+      "portfolio.badge.aiLead": "Dự Án AI Nổi Bật về Lãnh Đạo",
+      "portfolio.badge.aiEng": "Dự Án AI Nổi Bật về Kỹ Thuật",
+      "portfolio.techHighlights": "Điểm Nổi Bật Kỹ Thuật",
+      "portfolio.viewGithub": "Xem trên GitHub",
+      "portfolio.visitSite": "Truy cập Website",
+
+      "portfolio.p1.title": "Mắt Thần Nông — Dự án Nghiên cứu Khoa học AI",
+      "portfolio.p1.role": "Vai trò: Team Leader & AI Developer (nhóm 3 người) — sản phẩm đã qua vòng duyệt sản phẩm",
+      "portfolio.p1.desc": "Kế thừa và nâng cấp từ prototype web cá nhân trước đó (<em>AI Plant Disease Diagnosis — Chẩn đoán bệnh cây bằng AI</em>): đề tài nghiên cứu này ứng dụng AI trên mobile để chẩn đoán bệnh trên cây công nghiệp (cà phê, sầu riêng) từ ảnh thực địa — pipeline cải tiến (YOLOv8, dữ liệu nhóm quy mô, suy luận trên thiết bị). Sản phẩm đã qua vòng duyệt sản phẩm.",
+      "portfolio.p1.b1": "<strong>Từ prototype đến nghiên cứu:</strong> App EfficientNet/TFLite cá nhân đã chứng minh pipeline nhận diện bệnh lá end-to-end; dự án này mở rộng phạm vi — cây công nghiệp, bộ dữ liệu đồng ruộng và YOLOv8 cho phát hiện bền hơn",
+      "portfolio.p1.b2": "<strong>Triển khai AI thời gian thực:</strong> Tích hợp mô hình vào quy trình mobile để suy luận nhanh trên thiết bị và sử dụng thực tế tại đồng ruộng",
+      "portfolio.p1.b3": "<strong>Lãnh đạo AI sinh viên:</strong> Dẫn dắt nhóm nhiều thành viên, kết nối nghiên cứu AI, chuẩn bị dữ liệu và triển khai sản phẩm thành một giải pháp khả dụng",
+
+      "portfolio.p2.title": "AutoLastWar - Bot Tự Động Hóa & Thị Giác Máy Tính Nâng Cao",
+      "portfolio.p2.role": "Vai trò: Lập trình viên Cốt lõi AI & Tự động hóa — sản phẩm đã thương mại hóa",
+      "portfolio.p2.desc": "Một bot tự động hóa desktop đã được thương mại hóa, sử dụng thị giác máy tính thời gian thực để phân tích trạng thái màn hình và thực thi hành động phản hồi chính xác cho người dùng VIP.",
+      "portfolio.p2.b1": "<strong>Tối ưu hiệu năng:</strong> Kết hợp Python, OpenCV, MSS và PyDirectInput để xử lý tín hiệu hình ảnh và vòng lặp hành động hiệu quả cao",
+      "portfolio.p2.b2": "<strong>Tự động hóa bằng thị giác máy tính:</strong> Thiết kế nhận diện trạng thái màn hình và ràng buộc hành động từ hành vi quan sát được trong game bằng OpenCV/MSS, giữ bot vận hành theo hướng screen-driven",
+      "portfolio.p2.b3": "<strong>Triển khai sản phẩm thương mại:</strong> Đóng gói bot thành sản phẩm automation VIP có người dùng thật, nhu cầu bảo trì và vòng phản hồi production",
+
+      "portfolio.p3.title": "Nền tảng Thương mại Điện tử: autobotlastwar.com",
+      "portfolio.p3.role": "Vai trò: Lập trình viên Full-stack & DevOps",
+      "portfolio.p3.desc": "Nền tảng web SaaS full-stack để thương mại hóa phần mềm, cung cấp các gói dịch vụ VIP và bảng điều khiển quản lý người dùng trực quan.",
+      "portfolio.p3.b1": "<strong>Kiến trúc hiện đại:</strong> Thiết kế hệ thống client-server với Next.js 14, FastAPI và PostgreSQL",
+      "portfolio.p3.b2": "<strong>Pipeline CI/CD:</strong> Triển khai quy trình deploy tự động bằng GitHub Actions, đẩy liên tục lên hạ tầng VPS",
+      "portfolio.p3.b3": "<strong>Sẵn sàng vận hành:</strong> Hoàn thành tối ưu đầu cuối từ SEO frontend đến bảo mật backend và quản lý cơ sở dữ liệu",
+
+      "portfolio.p4.title": "Hệ thống Phát hiện Tin Giả bằng AI",
+      "portfolio.p4.role": "Vai trò: Lập trình viên Duy nhất (Đầu - Cuối)",
+      "portfolio.p4.desc": "Ứng dụng web tương tác phân loại bài báo là Thật hay Giả với độ chính xác 90%, kèm giải thích mô hình bằng LIME để xây dựng niềm tin và tính minh bạch của mô hình.",
+      "portfolio.p4.b1": "<strong>Triển khai AI Có Thể Giải Thích (XAI):</strong> Tích hợp thành công thư viện LIME để cung cấp giải thích trực quan, dễ hiểu cho con người về dự đoán của mô hình",
+      "portfolio.p4.b2": "<strong>Ứng dụng Dữ liệu Full-Stack:</strong> Xây dựng và triển khai dự án ML đầu cuối với Streamlit cho giao diện tương tác và Scikit-learn cho phân loại",
+      "portfolio.p4.b3": "<strong>Pipeline ML Hoàn chỉnh:</strong> Quản lý toàn bộ vòng đời mô hình từ huấn luyện đến triển khai với quản lý phiên bản và tối ưu hóa phù hợp",
+
+      "portfolio.p5.title": "Chẩn đoán Bệnh Cây bằng AI",
+      "portfolio.p5.role": "Vai trò: Lập trình viên Duy nhất (Đầu - Cuối)",
+      "portfolio.p5.desc": "Ứng dụng web cá nhân phân tích ảnh lá để gợi ý bệnh (khoảng 95% độ chính xác), giao diện responsive và backend TensorFlow Lite. Đây là <strong>bản proof-of-concept và nền kỹ thuật</strong> giúp định hình ý tưởng, chiến lược dữ liệu và các cải tiến kiến trúc cho đề tài nghiên cứu khoa học AI <em>Mắt Thần Nông</em>.",
+      "portfolio.p5.b1": "<strong>Thị giác Máy tính Nâng cao:</strong> Hiện thực và fine-tune CNN (EfficientNetB3) bằng kỹ thuật Transfer Learning và data augmentation",
+      "portfolio.p5.b2": "<strong>Triển khai AI Full-Stack:</strong> Tích hợp mô hình TensorFlow Lite vào backend Flask với RESTful API và frontend HTML/CSS/JS responsive",
+      "portfolio.p5.b3": "<strong>Tiền đề cho đề tài:</strong> Chuỗi chẩn đoán lá end-to-end đã xác nhận hướng plant-CV; kinh nghiệm chuyển tiếp sang dự án nhóm (YOLOv8, cây trồng thực địa, mobile)",
+
+      "portfolio.p6.title": "YT_Skipper - Tự Động Bỏ Quảng Cáo YouTube (Chrome Extension MV3)",
+      "portfolio.p6.role": "Vai trò: Lập trình viên JavaScript (Kiến trúc Extension & Logic Runtime)",
+      "portfolio.p6.desc": "Một Chrome Extension hướng sản phẩm có khả năng tự phát hiện và bỏ quảng cáo YouTube, kể cả ở tab nền, để giảm thao tác lặp lại cho người dùng.",
+      "portfolio.p6.b1": "<strong>Thiết kế kiến trúc MV3:</strong> Tách extension thành background service worker, content script và module DOM utilities để phân tách trách nhiệm rõ ràng.",
+      "portfolio.p6.b2": "<strong>Chiến lược skip nhiều lớp:</strong> Triển khai luồng skip quảng cáo bền vững với click DOM, fallback content-world và fallback debugger/CDP cho các trạng thái player nghiêm ngặt hơn.",
+      "portfolio.p6.b3": "<strong>Độ tin cậy nền:</strong> Sử dụng heartbeat alarms, theo dõi tab, polling và MutationObserver để duy trì hoạt động ổn định ngay cả khi YouTube chạy ở tab không hoạt động.",
+      "portfolio.p6.b4": "<strong>Đánh đổi kỹ thuật thực tế:</strong> Ghi nhận giới hạn liên quan đến thay đổi UI YouTube, quảng cáo không thể bỏ qua và ràng buộc chính sách debugger giữa các môi trường.",
+
+      "contact.title": "Liên Hệ",
+      "contact.address": "Địa chỉ",
+      "contact.addressValue": "Quận 7, TP. Hồ Chí Minh, Việt Nam",
+      "contact.call": "Gọi Tôi",
+      "contact.email": "Email Tôi",
+      "contact.name": "Họ và tên",
+      "contact.emailPh": "Email của bạn",
+      "contact.subject": "Tiêu đề",
+      "contact.message": "Nội dung",
+      "contact.send": "Gửi Tin Nhắn",
+      "contact.sent": "Tin nhắn của bạn đã được gửi. Cảm ơn bạn!",
+      "contact.failed": "Gửi tin nhắn thất bại. Vui lòng thử lại.",
+
+      "footer.copyright": "Bản quyền",
+      "footer.rights": "Mọi quyền được bảo lưu",
+      "footer.designedBy": "Thiết kế bởi"
+    }
+  };
+
+  const STORAGE_KEY = "site_lang";
+  const supported = ["en", "vi"];
+
+  function getInitialLang() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved && supported.indexOf(saved) !== -1) return saved;
+    const browser = (navigator.language || "en").toLowerCase();
+    return browser.startsWith("vi") ? "vi" : "en";
+  }
+
+  function applyLanguage(lang) {
+    const dict = translations[lang] || translations.en;
+
+    if (dict["page.title"]) {
+      document.title = dict["page.title"];
+    }
+    document.documentElement.setAttribute("lang", lang);
+
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      const key = el.getAttribute("data-i18n");
+      if (dict[key] != null) el.textContent = dict[key];
+    });
+
+    document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+      const key = el.getAttribute("data-i18n-html");
+      if (dict[key] != null) el.innerHTML = dict[key];
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(function (el) {
+      const key = el.getAttribute("data-i18n-placeholder");
+      if (dict[key] != null) el.setAttribute("placeholder", dict[key]);
+    });
+
+    const typedEl = document.querySelector(".typed");
+    if (typedEl) {
+      const typedKey = typedEl.getAttribute("data-typed-key");
+      const newStrings = (dict[typedKey] || typedEl.getAttribute("data-typed-items") || "").trim();
+      if (newStrings) {
+        typedEl.setAttribute("data-typed-items", newStrings);
+        if (window.__typedInstance && typeof window.__typedInstance.destroy === "function") {
+          try { window.__typedInstance.destroy(); } catch (_) {}
+        }
+        typedEl.textContent = "";
+        if (typeof window.Typed === "function") {
+          window.__typedInstance = new window.Typed(".typed", {
+            strings: newStrings.split(",").map(function (s) { return s.trim(); }),
+            loop: true,
+            typeSpeed: 100,
+            backSpeed: 50,
+            backDelay: 2000
+          });
+        }
+      }
+    }
+
+    document.querySelectorAll(".lang-switcher button[data-lang]").forEach(function (btn) {
+      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+    });
+  }
+
+  function setLanguage(lang) {
+    if (supported.indexOf(lang) === -1) lang = "en";
+    localStorage.setItem(STORAGE_KEY, lang);
+    applyLanguage(lang);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const initial = getInitialLang();
+    applyLanguage(initial);
+
+    document.querySelectorAll(".lang-switcher button[data-lang]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setLanguage(btn.getAttribute("data-lang"));
+      });
+    });
+  });
+})();
+</script>
 
 </body>
 
