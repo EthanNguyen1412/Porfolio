@@ -11,3 +11,6 @@
 
 # Other
 .DS_Store
+
+# Redundant Maven archive (use .mvn/wrapper only)
+.mvn.zip
