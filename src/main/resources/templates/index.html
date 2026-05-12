@@ -298,7 +298,7 @@
   </div>
   <nav id="navmenu" class="navmenu">
     <ul>
-      <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i> <span data-i18n="nav.home">Home</span></a></li>
+      <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i> <span>Home</span></a></li>
       <li><a href="#about"><i class="bi bi-person navicon"></i> <span data-i18n="nav.about">About</span></a></li>
       <li><a href="#skills"><i class="bi bi-gear navicon"></i> <span data-i18n="nav.skills">Skills</span></a></li>
       <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> <span data-i18n="nav.resume">Resume</span></a></li>
@@ -315,7 +315,7 @@
     <img src="/assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
     <div class="container" data-aos="fade-up" data-aos-delay="100">
       <h2>Viet Anh Nguyen</h2>
-      <p><span data-i18n="hero.intro">I'm an</span> <span class="typed" data-typed-items="AI Engineer, Full-stack Developer, Automation Developer, Team Leader" data-typed-key="hero.typed"></span></p>
+      <p><span>I'm an</span> <span class="typed" data-typed-items="AI Engineer, Full-stack Developer, Automation Developer, Team Leader"></span></p>
     </div>
   </section><!-- /Hero Section -->
 
@@ -795,15 +795,11 @@
     en: {
       "page.title": "Portfolio | Viet Anh Nguyen",
 
-      "nav.home": "Home",
       "nav.about": "About",
       "nav.skills": "Skills",
       "nav.resume": "Resume",
       "nav.portfolio": "Portfolio",
       "nav.contact": "Contact",
-
-      "hero.intro": "I'm an",
-      "hero.typed": "AI Engineer, Full-stack Developer, Automation Developer, Team Leader",
 
       "about.title": "About Me",
       "about.desc": "Third-year Information Technology student majoring in Artificial Intelligence at the University of Economics and Finance, Ho Chi Minh City (UEF). Hands-on experience developing AI systems, software automation, and full-stack web products. Focused on growing as an AI Engineer.",
@@ -956,15 +952,11 @@
     vi: {
       "page.title": "Hồ Sơ Cá Nhân | Nguyễn Việt Anh",
 
-      "nav.home": "Trang chủ",
       "nav.about": "Giới thiệu",
       "nav.skills": "Kỹ năng",
       "nav.resume": "Hồ sơ",
       "nav.portfolio": "Dự án",
       "nav.contact": "Liên hệ",
-
-      "hero.intro": "Tôi là",
-      "hero.typed": "Kỹ sư AI, Lập trình viên Full-stack, Lập trình viên Tự động hóa, Trưởng nhóm",
 
       "about.title": "Giới Thiệu Về Tôi",
       "about.desc": "Nguyễn Việt Anh, sinh viên năm 3 chuyên ngành Trí tuệ Nhân tạo tại Trường Đại học Kinh tế - Tài chính TP.HCM (UEF). Có kinh nghiệm thực chiến trong phát triển AI, tự động hóa phần mềm (Automation) và lập trình Full-stack. Định hướng phát triển chuyên sâu trong vai trò AI Engineer.",
@@ -1149,9 +1141,10 @@
     });
 
     const typedEl = document.querySelector(".typed");
-    if (typedEl) {
+    /* Hero (#hero): excluded from language switch; Typed stays on data-typed-items */
+    if (typedEl && !typedEl.closest("#hero")) {
       const typedKey = typedEl.getAttribute("data-typed-key");
-      const newStrings = (dict[typedKey] || typedEl.getAttribute("data-typed-items") || "").trim();
+      const newStrings = (typedKey && dict[typedKey] != null ? dict[typedKey] : typedEl.getAttribute("data-typed-items") || "").trim();
       if (newStrings) {
         typedEl.setAttribute("data-typed-items", newStrings);
         if (window.__typedInstance && typeof window.__typedInstance.destroy === "function") {
