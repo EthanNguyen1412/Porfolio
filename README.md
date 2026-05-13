@@ -4,14 +4,12 @@ Website portfolio cá nhân — Spring Boot phục vụ giao diện Thymeleaf, f
 
 ## Demo
 
-- **Bản deploy:** [viet-anh-porfolio.onrender.com](https://viet-anh-porfolio.onrender.com/)
+- **Bản deploy:** [www.vietanhnguyen.online](https://www.vietanhnguyen.online/)
 
 ## Liên kết cá nhân
 
-Thêm link profile tại đây khi bạn có URL cố định:
-
-- LinkedIn: _(cập nhật)_
-- GitHub profile: _(cập nhật)_
+- LinkedIn: [linkedin.com/in/nguyenvietanhit](https://www.linkedin.com/in/nguyenvietanhit)
+- GitHub: [github.com/EthanNguyen1412](https://github.com/EthanNguyen1412)
 
 ## Công nghệ
 

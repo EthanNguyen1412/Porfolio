@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 <#
 .SYNOPSIS
   Add, commit, và push code lên Git (chuẩn bị trước khi git pull trên VPS).
@@ -17,6 +17,17 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+
+# UTF-8 console: hiển thị tiếng Việt đúng trên Windows Terminal / PowerShell 5.1
+try {
+    if ($null -ne (Get-Command chcp.com -ErrorAction SilentlyContinue)) {
+        & chcp.com 65001 | Out-Null
+    }
+} catch { }
+[Console]::InputEncoding = [System.Text.Encoding]::UTF8
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$OutputEncoding = [System.Text.Encoding]::UTF8
+
 Set-Location -LiteralPath $PSScriptRoot
 
 if (-not (Test-Path -LiteralPath ".git" -PathType Container)) {
