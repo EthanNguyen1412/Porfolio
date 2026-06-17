@@ -1,5 +1,7 @@
 # Nguyễn Việt Anh — Sơ yếu lý lịch (master, tiếng Việt)
 
+**Computer Vision / AI Deployment Engineer**
+
 Bản nguồn đồng bộ với portfolio. Dùng file này để cập nhật rồi xuất lại `src/main/resources/static/files/Nguyen_Viet_Anh_CV.pdf` khi cần.
 
 **Liên hệ**
@@ -15,52 +17,61 @@ Bản nguồn đồng bộ với portfolio. Dùng file này để cập nhật r
 
 ## Tóm tắt nghề nghiệp
 
-Hướng tới vị trí AI Engineer: ML/CV end-to-end (huấn luyện → đánh giá → tích hợp), kèm API và tự động hóa quy mô thực tế. Sinh viên năm cuối chuyên ngành AI tại UEF — dẫn sản phẩm AI nhận diện bệnh cây qua vòng duyệt sản phẩm và thương mại hóa sản phẩm tự động hóa dựa thị giác với gần 200 người dùng hoạt động.
+Sinh viên năm cuối chuyên ngành Trí tuệ Nhân tạo tại UEF, hướng tới **thực tập Computer Vision Engineer** tập trung triển khai mô hình và edge computing. Có thành tích xây dựng hệ thống tự động hóa dựa thị giác thời gian thực với độ trễ cực thấp (**15–30 ms**) bằng Python và OpenCV. Dẫn dắt dự án R&D triển khai mô hình phát hiện đối tượng YOLOv8 cho môi trường mobile. Giải quyết tốt thách thức tích hợp phía client bằng C++ injection và kiến trúc multi-process. Đam mê pipeline tối ưu mô hình (ONNX, TFLite, INT8 quantization) và tích hợp perception stack bền vững vào phần cứng hạn chế tài nguyên.
+
+---
+
+## Kỹ năng
+
+- **Python & C++** — orchestration, native bridge, build bảo mật  
+- **YOLOv8 & Object Detection** — chẩn đoán cây trồng thực địa, đóng gói mobile  
+- **OpenCV & Xử lý ảnh** — pipeline grayscale, template matching, ROI extraction  
+- **Edge AI (ONNX, TFLite)** — chuyển đổi mô hình, INT8 quantization  
+- **Multi-processing & Inference** — JSON-line socket IPC, vòng quyết định thời gian thực  
+- **Git & AI Tooling** — version control, Cursor / Google AI Studio cho vòng lặp CV  
 
 ---
 
 ## Học vấn
 
-**Cử nhân Công nghệ Thông tin** (chuyên ngành Trí tuệ Nhân tạo)  
+**Cử nhân CNTT (Trí tuệ Nhân tạo)**  
 **2023 – Hiện tại**  
-Trường Đại học Kinh tế - Tài chính (UEF), TP.HCM
+Trường ĐH Kinh tế - Tài chính (UEF), TP.HCM
 
-Sinh viên năm cuối ngành Công nghệ Thông tin, chuyên ngành Trí tuệ Nhân tạo. Chương trình và dự án tập trung học máy, học sâu, computer vision và xây dựng phần mềm có thể triển khai.
+Chương trình tập trung Computer Vision, Deep Learning, xử lý ảnh thời gian thực và xây dựng phần mềm AI có thể triển khai quy mô.
 
 ---
 
 ## Chứng chỉ
 
-**Coursera (đã hoàn thành)**
-
-- Python for Everybody  
-- Artificial Intelligence on Microsoft Azure  
-- Machine Learning with Python  
-
-**Đang hoàn thiện:** Microsoft Azure AI Fundamentals (AI-900)
+- **Python for Everybody** — Coursera (University of Michigan)  
+- **Artificial Intelligence on Microsoft Azure** — Coursera (Microsoft)  
+- **Machine Learning with Python** — Coursera (IBM)  
 
 ---
 
-## Dự án nổi bật
+## Kinh nghiệm
 
-### Mắt Thần Nông (Divine Farmer's Eye) — Dự án Nghiên cứu Khoa học AI
+### Hệ sinh thái AutoLastWar — Computer Vision Automation Engineer
 
-**Tháng 9/2025 – Tháng 4/2026** · Team Leader & AI Developer (nhóm 3 người) — đã qua vòng duyệt sản phẩm
+**Tháng 10/2025 – Tháng 6/2026**
 
-- Xây trên dự án cá nhân trước (*AI Plant Disease Diagnosis*): mở rộng sang dữ liệu đồng ruộng cà phê/sầu riêng, YOLOv8 và đóng gói hướng mobile — cùng bài toán, tiêu chuẩn nghiên cứu và triển khai cao hơn.  
-- Là team lead điều phối gán nhãn và chu kỳ thí nghiệm; sản phẩm đã qua vòng duyệt sản phẩm.
+- Xây dựng sản phẩm automation dựa thị giác quy mô thực tế, phục vụ **286+ tài khoản đăng ký** với vòng phản hồi ổn định.  
+- Thiết kế perception stack vòng kín (Python, OpenCV, MSS): pipeline grayscale, auto-DPI calibration, template matching, ROI extraction — đạt **15–30 ms/chu kỳ suy luận**.  
+- Kiến trúc multi-process qua **JSON-line socket IPC**; C++ bridge (`version.dll`) cho Lua injection; **Nuitka** cho native build bảo mật.
 
-### Hệ sinh thái AutoLastWar & nền tảng autobotlastwar.com
+### Mắt Thần Nông (Divine Farmer's Eye) — Computer Vision Team Lead
 
-**Tháng 10/2025 – Tháng 4/2026** · Core AI Developer & Full-stack Engineer
+**Tháng 9/2025 – Tháng 4/2026** · Dự án Nghiên cứu Khoa học · Nhóm 3 người — đã qua vòng duyệt sản phẩm
 
-- Thương mại hóa automation nặng CV ở quy mô thực tế: gói VIP, gần 200 người dùng hoạt động — vòng phản hồi gần với vận hành ML thực tế.  
-- Stack cảm nhận kín (Python, OpenCV, MSS) — cùng lớp bài toán tin cậy khi triển khai model sau một ứng dụng.  
-- Lớp full-stack cho sản phẩm (Next.js 14, FastAPI, PostgreSQL) và CI/CD GitHub Actions — mô hình giao hàng SaaS có thể gắn AI phía sau.
+- Dẫn dắt nhóm 3 người xây dựng **AI chẩn đoán bệnh cây bằng YOLOv8**, thành công qua vòng duyệt sản phẩm khoa học.  
+- Xử lý dữ liệu đồng ruộng phức tạp, nhiễu (cà phê/sầu riêng) và tinh chỉnh kiến trúc deep learning hướng triển khai mobile.  
+- Áp dụng chuyển đổi mô hình (**ONNX, TFLite**) và **INT8 quantization** đảm bảo FPS ổn định và footprint bộ nhớ thấp trên thiết bị edge.
 
-### SuiCircle — SUI x UEF Mini Hackathon & SuiHub Discovery
+---
 
-**Tháng 1/2026** · Thành viên phát triển ý tưởng & kỹ thuật
+## Dự án hỗ trợ
 
-- Sprint triển khai trên Sui — cùng áp lực với hackathon ML/API: giới hạn phạm vi, đánh đổi kỹ thuật và chất lượng demo trong deadline.  
-- Kỹ năng chuyển sang AI Engineer: prototype nhanh, tích hợp SDK lạ, trình bày câu chuyện kỹ thuật mạch lạc cho ban giám khảo.
+### Chẩn đoán Bệnh Cây bằng AI — Tiền đề CV (cá nhân)
+
+Proof-of-concept cá nhân xác thực plant CV end-to-end (~95% độ chính xác) với EfficientNetB3 + TFLite — nền kỹ thuật cho pipeline nghiên cứu YOLOv8 *Mắt Thần Nông*.

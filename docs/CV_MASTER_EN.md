@@ -1,5 +1,7 @@
 # Viet Anh Nguyen — Curriculum Vitae (master, English)
 
+**Computer Vision / AI Deployment Engineer**
+
 Canonical text aligned with the portfolio site. Use this to refresh `src/main/resources/static/files/Nguyen_Viet_Anh_CV.pdf` when you export an updated PDF.
 
 **Contact**
@@ -15,52 +17,61 @@ Canonical text aligned with the portfolio site. Use this to refresh `src/main/re
 
 ## Professional summary
 
-Targeting AI Engineer roles: end-to-end ML/CV (train → evaluate → integrate), plus APIs and automation at scale. Final-year AI major at UEF — led a crop-disease AI product past the product review round and commercialized a vision-driven automation product with ~200 active users.
+Final-year Artificial Intelligence major at UEF, seeking a **Computer Vision Engineer Internship** focused on model deployment and edge computing. Proven track record building real-time vision-driven automation systems with ultra-low latency (**15–30 ms**) using Python and OpenCV. Successfully led an R&D project deploying YOLOv8 object detection models for mobile environments. Adept at solving complex client-side integration challenges using C++ injection and multi-process architectures. Highly passionate about model optimization pipelines (ONNX, TFLite, INT8 quantization) and integrating robust perception stacks into resource-constrained hardware.
+
+---
+
+## Skills
+
+- **Python & C++** — orchestration, native bridges, secure builds  
+- **YOLOv8 & Object Detection** — field crop diagnosis, mobile packaging  
+- **OpenCV & Image Processing** — grayscale pipeline, template matching, ROI extraction  
+- **Edge AI (ONNX, TFLite)** — model conversion, INT8 quantization  
+- **Multi-processing & Inference** — JSON-line socket IPC, real-time decision loops  
+- **Git & AI Tooling** — version control, Cursor / Google AI Studio for CV iteration  
 
 ---
 
 ## Education
 
-**Bachelor of Information Technology** (Artificial Intelligence)  
+**Bachelor of IT (Artificial Intelligence)**  
 **2023 – Present**  
-University of Economics and Finance (UEF), Ho Chi Minh City
+UEF University, Ho Chi Minh City
 
-Final-year undergraduate in Information Technology, majoring in Artificial Intelligence. Coursework and projects emphasize machine learning, deep learning, computer vision, and building deployable software.
+Coursework explicitly emphasizes Computer Vision, Deep Learning, real-time image processing, and building scalable, deployable AI software.
 
 ---
 
 ## Certifications
 
-**Coursera (completed)**
-
-- Python for Everybody  
-- Artificial Intelligence on Microsoft Azure  
-- Machine Learning with Python  
-
-**In progress:** Microsoft Azure AI Fundamentals (AI-900)
+- **Python for Everybody** — Coursera (University of Michigan)  
+- **Artificial Intelligence on Microsoft Azure** — Coursera (Microsoft)  
+- **Machine Learning with Python** — Coursera (IBM)  
 
 ---
 
-## Key projects
+## Experience
 
-### Mắt Thần Nông (Divine Farmer's Eye) — AI scientific research project
+### AutoLastWar Ecosystem — Computer Vision Automation Engineer
 
-**Sep 2025 – Apr 2026** · Team Leader & AI Developer (3-person team) — passed the product review round
+**Oct 2025 – Jun 2026**
 
-- Built on prior solo work (*AI Plant Disease Diagnosis*): expanded to coffee/durian field data, YOLOv8, and mobile-oriented packaging — same problem class, stronger research and deployment bar.  
-- Led labeling and experiment cadence as team lead; the product passed the review round.
+- Engineered a vision-driven automation product at scale, serving **286+ registered accounts** with stable feedback loops.  
+- Designed a closed-loop perception stack utilizing Python, OpenCV, and MSS: grayscale pipeline, auto-DPI calibration, template matching, ROI extraction — achieving **15–30 ms per inference cycle**.  
+- Developed a multi-process architecture over **JSON-line socket IPC**; built a C++ bridge (`version.dll`) for Lua injection into the game client; utilized **Nuitka** for secure native builds.
 
-### AutoLastWar ecosystem & autobotlastwar.com
+### Mắt Thần Nông (Divine Farmer's Eye) — Computer Vision Team Lead
 
-**Oct 2025 – Apr 2026** · Core AI Developer & Full-stack Engineer
+**Sep 2025 – Apr 2026** · Scientific R&D Project · 3-person team — passed product review round
 
-- Commercialized CV-heavy automation at scale: VIP product with ~200 active users — feedback loops mirror ML ops in the wild.  
-- Closed-loop perception stack (Python, OpenCV, MSS) — same class of reliability problems as serving models behind an app.  
-- Full-stack surface for the product (Next.js 14, FastAPI, PostgreSQL) with GitHub Actions CI/CD — pattern for AI-backed SaaS delivery.
+- Directed a 3-person team to construct a **YOLOv8-based crop disease diagnosis AI**, successfully passing the scientific product review round.  
+- Processed complex, noisy field data (coffee/durian) and refined the deep learning architecture for mobile-oriented packaging.  
+- Applied model conversion (**ONNX, TFLite**) and **INT8 quantization** techniques to guarantee reliable FPS and low memory footprint on edge devices.
 
-### SuiCircle — SUI × UEF Mini Hackathon & SuiHub Discovery
+---
 
-**Jan 2026** · Member — ideas & engineering
+## Supporting project
 
-- Intensive build sprint on Sui — same constraints as hackathon ML/API delivery: scope, trade-offs, and demo-ready quality under a deadline.  
-- Skills transferable to AI engineering: rapid prototyping, integrating unfamiliar SDKs, and presenting a coherent technical story to judges.
+### AI Plant Disease Diagnosis — CV Precursor (solo)
+
+Solo proof-of-concept validating plant CV end-to-end (~95% accuracy) with EfficientNetB3 + TFLite — technical baseline that informed the *Mắt Thần Nông* YOLOv8 research pipeline.
